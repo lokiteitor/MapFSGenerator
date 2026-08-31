@@ -1,0 +1,10 @@
+venv/
+output/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Material de referencia local (no versionado): golden output y source de Maps4FS
+FS25_Valle_Bonito/
+FS25_Valle_Bonito.zip
+maps4fs-1.8.242/

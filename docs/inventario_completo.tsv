@@ -1,0 +1,595 @@
+path	ext	size	dims	mode	md5_12
+custom_osm.osm	.osm	2685985			a779b8683dd6
+generation_info.json	.json	5756			33cce3ad0e42
+generation_logs.json	.json	304312			9c185a9ff813
+generation_settings.json	.json	2264			2d8bb211ad0e
+icon.dds	.dds	87536			e54574ee204f
+main_settings.json	.json	470			ea1814112608
+modDesc.xml	.xml	2101			247a4323ff80
+performance_report.json	.json	1187			4e3b4fd0594e
+preview.dds	.dds	2796344			2300931ebb62
+render_pda.py	.py	7436			f2acee9c8b8e
+valle_bonito.png	.png	36290723	12288x12288	I;16	f95e0a11709a
+previews/background_dem.png	.png	2537001	3072x3072	RGB	ce84fc1bbb5e
+previews/background_dem.stl	.stl	3681684			4fd21f296535
+previews/dem_colored.png	.png	1872665	8193x8193	RGB	4a1f2de1d16c
+previews/dem_grayscale.png	.png	1963407	8193x8193	RGB	8f0f7f8ad101
+previews/environment.png	.png	18068	2048x2048	RGB	e87f3db1f9c3
+previews/farmlands.png	.png	242240	2048x2048	RGB	d71536081a6a
+previews/farmlands_with_fields.png	.png	310569	2048x2048	RGB	9e1b03976c7a
+previews/indoor.png	.png	18068	2048x2048	RGB	e87f3db1f9c3
+previews/satellite_background.png	.png	8154792	2048x2048	RGB	58e75eb58f94
+previews/satellite_overview.png	.png	22506	2048x2048	RGB	cd198d45c987
+previews/soil_map_colored.png	.png	38042	1024x1024	RGB	75a5e2bbdb39
+previews/soil_map_normalized.png	.png	24560	1024x1024	L	d0abb19238c4
+previews/textures_osm.png	.png	282910	2048x2048	RGB	a7a1c30b89d0
+assets/roads/asphalt-white/asphalt-white.dds	.dds	174904			811901f73aa4
+assets/roads/asphalt-white/roads_asphalt-white_binary.i3d	.i3d	991			167343252f66
+assets/roads/asphalt-white/roads_asphalt-white_binary.i3d.shapes	.shapes	1525448			85ce860c6a7b
+assets/background/background_terrain_part_01_binary.i3d	.i3d	936			bbbe55f9e4b1
+assets/background/background_terrain_part_01_binary.i3d.shapes	.shapes	6230452			827f94d9f548
+assets/background/background_terrain_part_02_binary.i3d	.i3d	936			ad6913be7de3
+assets/background/background_terrain_part_02_binary.i3d.shapes	.shapes	5802644			20d0d1ee00a5
+assets/background/background_terrain_part_03_binary.i3d	.i3d	936			07dea31a90b0
+assets/background/background_terrain_part_03_binary.i3d.shapes	.shapes	6136496			f70aad1f6b61
+assets/background/background_terrain_part_04_binary.i3d	.i3d	936			b714a4c958b8
+assets/background/background_terrain_part_04_binary.i3d.shapes	.shapes	6617300			4b4d9f7634b5
+assets/background/background_texture.dds	.dds	8388736			acf693feaf87
+assets/map_bounds/map_bounds.i3d	.i3d	1927			a735386504d3
+assets/map_bounds/map_bounds.i3d.shapes	.shapes	588			7d84023d1b4d
+roads/asphalt-white_mask.png	.png	98443	9216x9216	L	1d341f3bfd33
+roads/gravel-bright_mask.png	.png	98443	9216x9216	L	1d341f3bfd33
+roads/asphalt-white/asphalt-white.dds	.dds	174904			811901f73aa4
+roads/asphalt-white/roads_asphalt-white.mtl	.mtl	113			f4ad404f2346
+roads/asphalt-white/roads_asphalt-white.obj	.obj	1243906			08444f211868
+background/FULL.obj	.obj	221062072			
+background/FULL.png	.png	102748559	12288x12288	I;16	
+background/decimated_background.obj	.obj	14316677			7881ebe5774e
+background/not_resized.png	.png	24944356	8192x8192	I;16	17144600af6f
+background/not_resized_with_flattened_roads.png	.png	24933946	8192x8192	I;16	4e0666087f61
+background/not_substracted.png	.png	36290723	12288x12288	I;16	f95e0a11709a
+background/textured_mesh/background_texture.dds	.dds	8388736			acf693feaf87
+background/textured_mesh/background_texture.jpg	.jpg	5604798			38e78401f9a0
+background/textured_mesh/background_textured_mesh.mtl	.mtl	115			28f28eacd7d7
+background/textured_mesh/background_textured_mesh.obj	.obj	23798871			22a0384c608a
+satellite/overview.png	.png	70209	4096x4096	RGB	a973f31f6030
+satellite/satellite_background.png	.png	56053021	7046x7046	RGB	6ae8dfa3da2d
+satellite/satellite_overview.png	.png	62896	3851x3851	RGB	90fe0a1ff44a
+map/Spline 86.i3d	.i3d	2598			b27e25950cd4
+map/Spline 86.obj	.obj	525			933771755bf8
+map/map.i3d	.i3d	6982492			750093ad2fbb
+map/map.i3d.bak	.bak	3861205			7bd1a6280a6b
+map/map.i3d.shapes	.shapes	711196			649d72eadc21
+map/map.i3d.terrain.lod.type.cache	.cache	134217740			
+map/map.i3d.terrain.nmap.cache	.cache	134217728			
+map/map.i3d.terrain.occluders.cache	.cache	13346628			ec2baa02f8f7
+map/map.xml	.xml	5202			9bcb47e14e10
+map/map_test.i3d	.i3d	4095938			833ca4b14894
+map/overview.dds	.dds	11184952			08801a4e396c
+map/overview_orig.dds	.dds	8388736			a1a35872963f
+map/sounds.i3d	.i3d	1358			d537095fcd3d
+map/splines.i3d	.i3d	172589			9e4ed3ad629d
+map/data/BC_commercial01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/BC_farmyard01_weight.png	.png	173109	8192x8192	L	39b92512f9ce
+map/data/BC_industrial01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/BC_recreation01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/BC_religious01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/BC_residential01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/BC_retail01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/PS_electricity_lines01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/PS_electricity_lines_extended_501_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/PS_electricity_lines_major01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/PS_electricity_lines_major_extended_601_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/PS_electricity_poles01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/PS_electricity_poles_extended_701_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/PS_electricity_towers01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/PS_electricity_towers_extended_801_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/PS_residential_lights01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/PS_residential_lights_extended_1001_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/PS_road_lights01_weight.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/PS_road_lights_extended_901_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/asphalt01_weight.png	.png	239039	8192x8192	L	6eb322f3f693
+map/data/asphalt02_weight.png	.png	195778	8192x8192	L	3f5c1f4a6fe7
+map/data/asphaltCracks01_weight.png	.png	103291	8192x8192	L	4fd49f815d10
+map/data/asphaltCracks02_weight.png	.png	102875	8192x8192	L	4c05f12ded65
+map/data/asphaltDirt01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/asphaltDirt02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/asphaltDusty01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/asphaltDusty02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/asphaltDusty_extended_101_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/asphaltGravel01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/asphaltGravel02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/asphaltTwigs01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/asphaltTwigs02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/concrete01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/concrete02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/concreteGravelSand01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/concreteGravelSand02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/concretePebbles01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/concretePebbles02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/concreteShattered01_weight.png	.png	74907	8192x8192	L	0b9949e46f47
+map/data/concreteShattered02_weight.png	.png	74587	8192x8192	L	33f3503ec66f
+map/data/concrete_extended_201_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/dem.png	.png	10883678	8193x8193	I;16	366aa864d4e5
+map/data/densityMap_fruits.gdm	.gdm	11708329			c6d7bf4f3b44
+map/data/densityMap_fruits.png	.png	1731394	16384x16384	RGB	e6ca24516fa4
+map/data/densityMap_ground.gdm	.gdm	3910022			3f745ccef6c7
+map/data/densityMap_ground.png	.png	813121	16384x16384	RGB	4857523358f9
+map/data/densityMap_groundFoliage.gdm	.gdm	262160			922889413519
+map/data/densityMap_groundFoliage.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/densityMap_height.gdm	.gdm	2097169			149ee2fc4523
+map/data/densityMap_height.png	.png	813121	16384x16384	RGB	4857523358f9
+map/data/densityMap_stones.gdm	.gdm	1048592			1aedbe23eaaf
+map/data/densityMap_stones.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/densityMap_weed.gdm	.gdm	1048592			ffcdfbb5e1aa
+map/data/densityMap_weed.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/forestGrass01_weight.png	.png	1396593	8192x8192	L	6faae6fd2af6
+map/data/forestGrass02_weight.png	.png	1025521	8192x8192	L	0d5011ebe53a
+map/data/forestGrass_bgforest_101_weight.png	.png	211603	12288x12288	L	a4b5bc017222
+map/data/forestLeaves01_weight.png	.png	154033	8192x8192	L	229c02590b1d
+map/data/forestLeaves02_weight.png	.png	154163	8192x8192	L	79bcef02a409
+map/data/forestLeaves_bgforest_201_weight.png	.png	168297	12288x12288	L	5c9f2fc10b83
+map/data/forestNeedels01_weight.png	.png	940442	8192x8192	L	d007bf489f70
+map/data/forestNeedels02_weight.png	.png	942884	8192x8192	L	4ac17c5b5277
+map/data/forestNeedels_bgforest_301_weight.png	.png	168297	12288x12288	L	5c9f2fc10b83
+map/data/forestRockRoots01.png	.png	939291	8192x8192	L	b41b18687a0e
+map/data/forestRockRoots02.png	.png	943308	8192x8192	L	0f737ceb9aae
+map/data/grass01_weight.png	.png	259685	8192x8192	L	a46fc3e7112c
+map/data/grass02_weight.png	.png	162017	8192x8192	L	1854aae77f28
+map/data/grassClovers01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassClovers02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassCut01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassCut02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassDirtPatchy01_weight.png	.png	65942	8192x8192	L	c9bf1d0f3f7c
+map/data/grassDirtPatchy02_weight.png	.png	65936	8192x8192	L	701301f29aa3
+map/data/grassDirtPatchyDry01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassDirtPatchyDry02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassDirtStones01_weight.png	.png	66309	8192x8192	L	415acbbafa95
+map/data/grassDirtStones02_weight.png	.png	66331	8192x8192	L	7a7ce8390d2a
+map/data/grassFreshMiddle01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassFreshMiddle02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassFreshShort01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassFreshShort02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassMoss01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/grassMoss02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravel01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravel02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravelDirtMoss01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravelDirtMoss02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravelPebblesMoss01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravelPebblesMoss02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravelPebblesMossPatchy01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravelPebblesMossPatchy02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravelSmall01_weight.png	.png	81530	8192x8192	L	65fcb11e088b
+map/data/gravelSmall02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/gravelSmall_extended_301_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/infoLayer_environment.grle	.grle	16472			e10f97f924ee
+map/data/infoLayer_environment.png	.png	7515	2048x2048	L	124266d1dc7d
+map/data/infoLayer_farmlands.grle	.grle	326685			603fabb2f66b
+map/data/infoLayer_farmlands.png	.png	230063	4096x4096	L	e6bc507a9dc1
+map/data/infoLayer_fieldType.grle	.grle	1052712			19f1973d1908
+map/data/infoLayer_fieldType.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_indoorMask.grle	.grle	1052712			19f1973d1908
+map/data/infoLayer_indoorMask.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_limeLevel.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_navigationCollision.grle	.grle	263196			8d489d6f992f
+map/data/infoLayer_navigationCollision.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/infoLayer_placementCollision.grle	.grle	263196			8d489d6f992f
+map/data/infoLayer_placementCollision.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/infoLayer_placementCollisionGenerated.grle	.grle	263196			8d489d6f992f
+map/data/infoLayer_placementCollisionGenerated.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/infoLayer_plowLevel.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_rollerLevel.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_soilMap.grle	.grle	35946			b323f6b20f12
+map/data/infoLayer_soilMap.png	.png	24113	1024x1024	L	c4c5a736d1f5
+map/data/infoLayer_sprayLevel.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_stubbleShredLevel.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_tipCollision.grle	.grle	1052712			19f1973d1908
+map/data/infoLayer_tipCollision.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_tipCollisionGenerated.grle	.grle	1052712			19f1973d1908
+map/data/infoLayer_tipCollisionGenerated.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/infoLayer_weed.png	.png	288208	16384x16384	L	fcda1bd9d155
+map/data/mudDark01_weight.png	.png	181197	8192x8192	L	68877cc28d2b
+map/data/mudDark02_weight.png	.png	124491	8192x8192	L	6803e6615e2b
+map/data/mudDarkGrassPatchy01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudDarkGrassPatchy02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudDarkMossPatchy01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudDarkMossPatchy02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudLeaves01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudLeaves02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudLight01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudLight02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudLight_extended_401_weight.png	.png	98443	9216x9216	L	1d341f3bfd33
+map/data/mudPebbles01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudPebbles02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudPebblesLight01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudPebblesLight02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudTracks01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/mudTracks02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/pebblesForestGround01_weight.png	.png	1021976	8192x8192	L	269d65452087
+map/data/pebblesForestGround02_weight.png	.png	1024073	8192x8192	L	8cc595597ff9
+map/data/rock01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/rock02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/rockFloorTiles01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/rockFloorTiles02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/rockFloorTilesPattern01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/rockFloorTilesPattern02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/rockForest01_weight.png	.png	65825	8192x8192	L	6ec511091905
+map/data/rockForest02_weight.png	.png	65847	8192x8192	L	ed00c19f97be
+map/data/rockyForestGround01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/rockyForestGround02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/sand01_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/sand02_weight.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/sand_background01_weight.png	.png	168297	12288x12288	L	5c9f2fc10b83
+map/data/soilMap.png	.png	39511	2048x2048	P	bbdb67e0c9ce
+map/data/unprocessedHeightMap.png	.png	24936619	8193x8193	I;16	9466f0da165b
+map/data/masks/BLOCKMASK.png	.png	68846	8192x8192	L	0df4cf9c86f2
+map/data/masks/PG_Needleaved.png	.png	155631	8192x8192	L	33d38f509d9f
+map/data/masks/PG_Trees.png	.png	81937	8192x8192	L	a6f6d1108f51
+map/data/masks/PG_acres.png	.png	124101	8192x8192	L	685e3f63c67e
+map/data/masks/PG_buildings.png	.png	82880	9216x9216	L	d67fe5776934
+map/data/masks/PG_dirtpaths.png	.png	82880	9216x9216	L	d67fe5776934
+map/data/masks/PG_drains.png	.png	4265	2048x2048	L	ebd503b61aa2
+map/data/masks/PG_farmyards.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/masks/PG_forests.png	.png	190138	12288x12288	L	33b7b9c09d69
+map/data/masks/PG_grasslands.png	.png	155953	8192x8192	L	7dd8b019e23e
+map/data/masks/PG_meadows.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/masks/PG_railways.png	.png	65507	8192x8192	L	cac4b036409b
+map/data/masks/PG_roads.png	.png	82880	9216x9216	L	d67fe5776934
+map/data/masks/PG_scrub.png	.png	79286	8192x8192	L	2633d6d2df94
+map/data/masks/PG_sideroads.png	.png	82880	9216x9216	L	d67fe5776934
+map/data/masks/PG_water.png	.png	4265	2048x2048	L	ebd503b61aa2
+map/import/background.i3d	.i3d	499889			8e14735d4850
+map/import/bga.i3d	.i3d	397653			772aff1fb842
+map/import/bga.i3d.shapes	.shapes	583764			09fd8a05133b
+map/import/buildings.i3d	.i3d	6587800			0c3ff0e3ba63
+map/import/buildings.i3d.shapes	.shapes	23141920			869b98663536
+map/import/church.i3d	.i3d	375861			8aa0facac5fe
+map/import/church.i3d.shapes	.shapes	6631240			a7e5900bafbe
+map/import/forestal_1.i3d	.i3d	46049			73bcf2c6c3c3
+map/import/forestal_2.i3d	.i3d	10811			881432274f62
+map/import/icon_leitpfosten.dds	.dds	131200			3c44642cb758
+map/import/leitpfosten.i3d	.i3d	5917			2d829c10db59
+map/import/leitpfosten.i3d.shapes	.shapes	331924			c3a328fbc7de
+map/import/pedestrian.i3d	.i3d	4131			d8eedfe189e7
+map/import/pedestrian.i3d.shapes	.shapes	1580			25485aced8e3
+map/import/prefabDesc.xml	.xml	2316			21ac3323e226
+map/import/street_one.i3d	.i3d	732720			1cecb0ec2561
+map/import/street_one.i3d.shapes	.shapes	2888032			116404452369
+map/import/street_two.i3d	.i3d	2255742			9111d1c70873
+map/import/street_two.i3d.shapes	.shapes	8565192			98f932e3c9d2
+map/import/vehicleTrader.i3d	.i3d	18041			6e03c14a3562
+map/import/vehicleTrader.i3d.shapes	.shapes	1310720			07f8154b98d8
+map/import/waterplane.i3d	.i3d	1549			f1cf4aa1ccbc
+map/import/waterplane.i3d.shapes	.shapes	418856			0d420c6233e8
+map/import/textures/Leitpfosten_Reflektoren_diffuse.dds	.dds	2796368			2e93f5c626f5
+map/import/textures/Leitpfosten_Reflektoren_normal.dds	.dds	1398248			097098d2a76a
+map/import/textures/Leitpfosten_Reflektoren_specular.dds	.dds	1398248			3e5fd8de4412
+map/import/textures/leitpfostenNoRef_diffuse.dds	.dds	349648			282ecc72f47a
+map/import/textures/leitpfostenNoRef_normal.dds	.dds	349648			5a65a77bf9c6
+map/import/textures/leitpfostenNoRef_specular.dds	.dds	349648			6b639a10ad67
+map/import/houses/apartmentA.i3d	.i3d	25627			ab6dbf95d417
+map/import/houses/apartmentA.i3d.shapes	.shapes	3305020			931c02dbbc5d
+map/import/houses/apartmentB.i3d	.i3d	672			06a78dd8c0cb
+map/import/houses/farmhouse.i3d	.i3d	691			cf98695b5c68
+map/import/houses/farmhouseB.i3d	.i3d	8472			e2e9b67ac8e0
+map/import/houses/farmhouseB.i3d.shapes	.shapes	2742352			f0518e53f17f
+map/import/houses/farmhouseC.i3d	.i3d	6184			312df928831a
+map/import/houses/farmhouseC.i3d.shapes	.shapes	578564			af50f79b379c
+map/import/houses/houseA.i3d	.i3d	9584			32ce3b427a5d
+map/import/houses/houseA.i3d.shapes	.shapes	452588			9aae54cf3799
+map/import/houses/school.i3d	.i3d	21193			58445146562d
+map/import/houses/school.i3d.shapes	.shapes	6111484			a6a4a806dd57
+map/import/houses/textures/01_specular.dds	.dds	43832			4be2e5302b78
+map/import/houses/textures/GalvanizedSteel_diffuse.dds	.dds	699192			30f50398d465
+map/import/houses/textures/GalvanizedSteel_normal.dds	.dds	699192			ab1e99d28bb6
+map/import/houses/textures/VCP_mask.dds	.dds	699192			e757d78d0b0e
+map/import/houses/textures/Wohnhaus1AO_vmask.dds	.dds	699192			5d33d89b2f38
+map/import/houses/textures/beton01_diffuse.dds	.dds	699192			3c0d5e4314cc
+map/import/houses/textures/beton01_height.dds	.dds	699192			be91589ff3da
+map/import/houses/textures/beton01_normal.dds	.dds	699192			d1135d8c4e38
+map/import/houses/textures/cegly03_diffuse.dds	.dds	699192			a282856c45e8
+map/import/houses/textures/cegly03_height.dds	.dds	699192			af4eda2d49aa
+map/import/houses/textures/cegly03_normal.dds	.dds	699192			a3428bb22d1c
+map/import/houses/textures/dachowka01Stary_diffuse.dds	.dds	174904			0a04805bba52
+map/import/houses/textures/dachowka01_height.dds	.dds	699192			29aeae393387
+map/import/houses/textures/dachowka01_normal.dds	.dds	699192			07a4b1482988
+map/import/houses/textures/deski01_diffuse.dds	.dds	699192			e43541c4e113
+map/import/houses/textures/deski01_height.dds	.dds	699192			a45b91632697
+map/import/houses/textures/deski01_normal.dds	.dds	699192			c0ff2ff373fe
+map/import/houses/textures/deski01_specular.dds	.dds	699192			7886a3bfee41
+map/import/houses/textures/deski01czerwone_diffuse.dds	.dds	699192			cece7f47211b
+map/import/houses/textures/deskiBiale_normal.dds	.dds	699192			b09d9743a01c
+map/import/houses/textures/galvanizedMetal_diffuse.dds	.dds	174904			49f843c443f4
+map/import/houses/textures/galvanizedMetal_specular.dds	.dds	174904			65932ece6bfa
+map/import/houses/textures/galvanizednormal.dds	.dds	699192			2b427d3fd5c5
+map/import/houses/textures/kamienie_specular.dds	.dds	699192			f91a09980810
+map/import/houses/textures/kamiennaSciana01_diffuse.dds	.dds	699192			9cd8bc4e4614
+map/import/houses/textures/kamiennaSciana01_height.dds	.dds	699192			e2fa986acb2d
+map/import/houses/textures/kamiennaSciana01_normal.dds	.dds	699192			247ba54359d4
+map/import/houses/textures/okno03_diffuse.dds	.dds	174904			c2a1fb780496
+map/import/houses/textures/okno03_normal.dds	.dds	174904			ae32f1bf10ab
+map/import/houses/textures/okno03_specular.dds	.dds	43832			ccccd42e68a4
+map/import/houses/textures/tynk01_diffuse.dds	.dds	699192			c20b5a93b922
+map/import/houses/textures/tynk01_height.dds	.dds	699192			c0c6904e9735
+map/import/houses/textures/tynk01_normal.dds	.dds	699192			5d083bdb2ad1
+map/import/FS25_StreetLightPack_prefab/StreetLightPack.i3d	.i3d	22590			24f1435dd1ef
+map/import/FS25_StreetLightPack_prefab/StreetLightPack.i3d.shapes	.shapes	3074652			a505eb00eab4
+map/import/FS25_StreetLightPack_prefab/icon_StreetLightPack.dds	.dds	131200			61ee4382ce77
+map/import/FS25_StreetLightPack_prefab/prefabDesc.xml	.xml	2676			40e14f6ae142
+map/import/FS25_StreetLightPack_prefab/Textures/etrier_diffuse.dds	.dds	699192			042a3128bd80
+map/import/FS25_StreetLightPack_prefab/Textures/etrier_normal.dds	.dds	699192			d846a5a0e52b
+map/import/FS25_StreetLightPack_prefab/Textures/etrier_specular.dds	.dds	699192			42249efad2b7
+map/import/FS25_StreetLightPack_prefab/Textures/glass.dds	.dds	5616			ce0b998aad51
+map/import/FS25_StreetLightPack_prefab/Textures/lampadaire_diffuse.dds	.dds	5592560			2e91ac23a54b
+map/import/FS25_StreetLightPack_prefab/Textures/lampadaire_normal.dds	.dds	2796344			4aaf2b4e6f98
+map/import/FS25_StreetLightPack_prefab/Textures/lampadaire_specular.dds	.dds	2796344			69cf003bb790
+map/import/placeables/i3d/textures/bench01_diffuse.dds	.dds	349648			b031eb638481
+map/import/placeables/i3d/textures/bench01_normal.dds	.dds	349648			d9d34edf8d2b
+map/import/placeables/i3d/textures/bench01_specular.dds	.dds	349648			031e606891a8
+map/import/placeables/i3d/textures/electricBox_diffuse.dds	.dds	349648			51ba0295ff9d
+map/import/placeables/i3d/textures/electricBox_normal.dds	.dds	349648			dd42cbb7a5b9
+map/import/placeables/i3d/textures/electricBox_specular.dds	.dds	349648			158ae5b16b26
+map/import/placeables/i3d/textures/icicles_diffuse.dds	.dds	349668			3b6d8c6a8ffc
+map/import/placeables/i3d/textures/icicles_normal.dds	.dds	174888			8474f2702541
+map/import/placeables/i3d/textures/icicles_specular.dds	.dds	174888			0630735fb31f
+map/import/placeables/i3d/textures/infrastructureMargins_diffuse.dds	.dds	174888			bbaf723be325
+map/import/placeables/i3d/textures/infrastructureMargins_normal.dds	.dds	174888			92fd0a8a4e4b
+map/import/placeables/i3d/textures/infrastructureMargins_specular.dds	.dds	174888			454db84c9e79
+map/import/placeables/i3d/textures/lightPoleSmall02_diffuse.dds	.dds	174888			9bdceb31d9f4
+map/import/placeables/i3d/textures/lightPoleSmall02_normal.dds	.dds	174888			3a2e5df6d5de
+map/import/placeables/i3d/textures/lightPoleSmall02_specular.dds	.dds	174888			25f869957f5a
+map/import/placeables/i3d/textures/lightPole_emissive.dds	.dds	43816			f275ff7af6e8
+map/import/placeables/i3d/textures/manHoleSet01_diffuse.dds	.dds	349648			07ed7629fd7d
+map/import/placeables/i3d/textures/manHoleSet01_normal.dds	.dds	349648			84617713eb37
+map/import/placeables/i3d/textures/manHoleSet01_specular.dds	.dds	349648			565dc6d52dfb
+map/import/placeables/i3d/textures/mapDirtAlpine_diffuse.dds	.dds	174888			7fa00e6da9c7
+map/import/placeables/i3d/textures/mapLeaks_diffuse.dds	.dds	174888			a71b8e31fb2f
+map/import/placeables/i3d/textures/potatoSanctuaryParts_diffuse.dds	.dds	2796340			51b64d9557ba
+map/import/placeables/i3d/textures/potatoSanctuaryParts_normal.dds	.dds	1398224			2d4a098fe4e9
+map/import/placeables/i3d/textures/potatoSanctuaryParts_specular.dds	.dds	1398224			d3cd0f7375f1
+map/import/placeables/i3d/textures/potatoSanctuary_diffuse.dds	.dds	2796320			6edc36a85a87
+map/import/placeables/i3d/textures/potatoSanctuary_mask.dds	.dds	2796328			fba915f014a3
+map/import/placeables/i3d/textures/potatoSanctuary_normal.dds	.dds	2796320			604d5a3404a8
+map/import/placeables/i3d/textures/potatoSanctuary_specular.dds	.dds	2796320			e4906bef2c03
+map/import/placeables/i3d/textures/trashBinSmall01_diffuse.dds	.dds	174888			54de79c5bfb2
+map/import/placeables/i3d/textures/trashBinSmall01_normal.dds	.dds	174888			e8293abf3793
+map/import/placeables/i3d/textures/trashBinSmall01_specular.dds	.dds	174888			93eddd9f5f94
+map/import/placeables/i3d/textures/trashBinSmall03_diffuse.dds	.dds	87504			973f1b94820d
+map/import/placeables/i3d/textures/trashBinSmall03_normal.dds	.dds	87504			30784e337ba2
+map/import/placeables/i3d/textures/trashBinSmall03_specular.dds	.dds	87504			08d64373c4e7
+map/import/placeables/i3d/textures/waterFountain01_diffuse.dds	.dds	174888			86108d6a3bfd
+map/import/placeables/i3d/textures/waterFountain01_normal.dds	.dds	174888			152b2d23aa0a
+map/import/placeables/i3d/textures/waterFountain01_specular.dds	.dds	174888			bb6609726ed2
+map/import/placeables/i3d/textures/hedge/hedge01LOD1_diffuse.dds	.dds	699176			a08b01b66837
+map/import/placeables/i3d/textures/hedge/hedge01LOD1_mask.dds	.dds	349332			b71c78adcffc
+map/import/placeables/i3d/textures/hedge/hedge01LOD1_normal.dds	.dds	174888			89ba27287acd
+map/import/placeables/i3d/textures/hedge/hedge_diffuse.dds	.dds	2796328			6c0994dd805b
+map/import/placeables/i3d/textures/hedge/hedge_mask.dds	.dds	1396884			285b9e55d017
+map/import/placeables/i3d/textures/hedge/hedge_normal.dds	.dds	2796328			ec7b1c434a6f
+map/import/placeables/i3d/prefabs/PackageDutch/textures/bakoven_mask.dds	.dds	174904			e2cff711f71c
+map/import/placeables/i3d/prefabs/PackageDutch/textures/bijgebouw1_mask.dds	.dds	699192			a3ed85002b41
+map/import/placeables/i3d/prefabs/PackageDutch/textures/boerderijtje5_mask.dds	.dds	699192			c6d8255e3c40
+map/import/placeables/i3d/prefabs/PackageDutch/textures/buildingsWindowsResidential_diffuse.dds	.dds	699192			7603fa6e61fc
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset2_alb.dds	.dds	699208			c237386f589d
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset2_height.dds	.dds	699208			464d5309bcb3
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset2_normal.dds	.dds	699208			2ce81ef29a8a
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset2_specular.dds	.dds	699208			07987cd66f85
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset4_alb.dds	.dds	699208			153eccc1acd0
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset4_height.dds	.dds	699208			36d4f148d28d
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset4_normal.dds	.dds	699208			5d3fd32e2907
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset4_specular.dds	.dds	699208			ee5138fa5453
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset_alb.dds	.dds	699208			848cfc59f3f2
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset_height.dds	.dds	699208			7110cf9f3242
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset_normal.dds	.dds	699208			2fa6cf43ebde
+map/import/placeables/i3d/prefabs/PackageDutch/textures/dutchModernset_specular.dds	.dds	699208			a0c155c7c04f
+map/import/placeables/i3d/prefabs/PackageDutch/textures/house2_spec.dds	.dds	699192			29174044b6bc
+map/import/placeables/i3d/prefabs/PackageDutch/textures/huis5_specular.dds	.dds	2796344			a4c45b665409
+map/import/placeables/i3d/prefabs/PackageDutch/textures/mapSlurry_diffuse.dds	.dds	174904			c98f5567e749
+map/import/placeables/i3d/prefabs/PackageDutch/textures/modern1_mask.dds	.dds	699192			a47289d96127
+map/import/placeables/i3d/prefabs/PackageDutch/textures/modern3_mask.dds	.dds	699192			a8b8f5a83161
+map/import/placeables/i3d/prefabs/PackageDutch/textures/modern4_mask.dds	.dds	699192			bdf1ab336885
+map/import/placeables/i3d/prefabs/PackageDutch/textures/modern5_mask.dds	.dds	699192			2dd86b2574c3
+map/import/placeables/i3d/prefabs/PackageDutch/textures/modern6_mask.dds	.dds	699192			24a4f6740fbf
+map/import/placeables/i3d/prefabs/PackageDutch/textures/rijtjeshuis_spec.dds	.dds	699192			ccd1e3dd150b
+map/import/placeables/i3d/prefabs/PackageDutch/textures/schuurtjes_mask.dds	.dds	699192			453108894fa6
+map/import/placeables/i3d/prefabs/PackageDutch/textures/set4_whitehouse.dds	.dds	699192			c2fa2f93525f
+map/import/placeables/i3d/prefabs/PackageDutch/textures/windowsRoomInteriorsDay_diffuse.dds	.dds	2796328			767c2a5552c9
+map/import/placeables/i3d/prefabs/PackageDutch/textures/windowsRoomInteriorsNight_diffuse.dds	.dds	5592548			83a31c1a91c1
+map/import/placeables/i3d/prefabs/PackageDutch/textures/zieleman_albedo.dds	.dds	1398280			db3ef47fe5b5
+map/import/placeables/i3d/prefabs/PackageDutch/textures/zieleman_heightmap.dds	.dds	1398280			b0bcf375e0d0
+map/import/placeables/i3d/prefabs/PackageDutch/textures/zieleman_norml.dds	.dds	1398280			7ad70db0d663
+map/import/placeables/i3d/prefabs/PackageDutch/textures/zieleman_spec.dds	.dds	1398280			651daaa11eca
+map/import/placeables/i3d/prefabs/hedge/hedge01LOD1_diffuse.dds	.dds	699176			a08b01b66837
+map/import/placeables/i3d/prefabs/hedge/hedge01LOD1_mask.dds	.dds	349332			b71c78adcffc
+map/import/placeables/i3d/prefabs/hedge/hedge01LOD1_normal.dds	.dds	174888			89ba27287acd
+map/import/placeables/i3d/prefabs/hedge/hedge_diffuse.dds	.dds	2796328			6c0994dd805b
+map/import/placeables/i3d/prefabs/hedge/hedge_mask.dds	.dds	1396884			285b9e55d017
+map/import/placeables/i3d/prefabs/hedge/hedge_normal.dds	.dds	2796328			ec7b1c434a6f
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/garbageCartBlackDecal_diffuse.dds	.dds	87524			4582dbdae633
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/garbageCartBlack_diffuse.dds	.dds	1398224			4c05e669e0cc
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/garbageCartBlack_normal.dds	.dds	349648			e67918200c8c
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/garbageCartBlack_specular.dds	.dds	349648			a21718ba89bc
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/garbageCartGreenDecal_diffuse.dds	.dds	87524			1b18cc268f03
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/garbageCartGreen_diffuse.dds	.dds	1398224			31bf0a8cc07a
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/garbageCartGreen_normal.dds	.dds	349648			10b1d8bc6ed2
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/garbageCartGreen_specular.dds	.dds	349648			d1513859fe4e
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/gardenTent_diffuse.dds	.dds	699176			6f6ec32d79e2
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/gardenTent_normal.dds	.dds	699176			2002da4075b1
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/gardenTent_specular.dds	.dds	699176			40f5671f279f
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/kidsPark01_diffuse.dds	.dds	699176			a227eb925339
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/kidsPark01_normal.dds	.dds	699176			e8cd39536868
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/kidsPark01_specular.dds	.dds	699176			4ecb3305c73b
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/picnicTableBench_diffuse.dds	.dds	699176			6ae89c40c787
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/picnicTableBench_normal.dds	.dds	699176			7443b3cb8da9
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/picnicTableBench_specular.dds	.dds	699176			658ef3091a55
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/streetFlowerPot01_diffuse.dds	.dds	349668			f98f1ce4e226
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/streetFlowerPot01_normal.dds	.dds	174888			c4b42b0e1955
+map/import/placeables/i3d/prefabs/FS25_Deko_Accessories_XXL_prefab/textures/streetFlowerPot01_specular.dds	.dds	174888			e6c49a4509e0
+map/import/placeables/i3d/sounds/glocken.ogg	.ogg	58625			cda92ee8decd
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/doorMat_albedo.dds	.dds	1398224			b2221782ffc7
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/doorMat_normal.dds	.dds	1398224			c3388e3de8ba
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/doorMat_specular.dds	.dds	1398224			2e8391ce93fd
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/garageDoor_albedo.dds	.dds	2796328			293e3dd053b8
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/garageDoor_normal.dds	.dds	2796328			bcefa24f5928
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/garageDoor_specular.dds	.dds	699176			435ac20425de
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_07_mask.dds	.dds	2796328			6a1c91dacf68
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas01_diffuse.dds	.dds	2796320			100c25512dbd
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas01_height.dds	.dds	2796340			aaf57a8860d0
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas01_normal.dds	.dds	2796320			c9750369c1ea
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas01_specular.dds	.dds	699168			801cd12b75d8
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas02_diffuse.dds	.dds	2796320			629bb7adc1ae
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas02_height.dds	.dds	2796340			aaf57a8860d0
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas02_normal.dds	.dds	2796320			a2cbbbc4baef
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas02_specular.dds	.dds	699168			f37ca6d8e826
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas03_diffuse.dds	.dds	2796320			6ca22b0b72e3
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas03_height.dds	.dds	2796340			d9b40ac8b7b4
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas03_normal.dds	.dds	2796320			ad866c88c75e
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas03_specular.dds	.dds	699168			0f8d6b7d8bf6
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas04_diffuse.dds	.dds	2796320			dfdcb4b78f7c
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas04_height.dds	.dds	2796340			b6b92ef6ec2b
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas04_normal.dds	.dds	2796320			a551d60435d3
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas04_specular.dds	.dds	699168			52059faeed33
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas05_diffuse.dds	.dds	2796320			351bf16b626d
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas05_height.dds	.dds	2796340			eebc1818e75b
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas05_normal.dds	.dds	2796320			38c5ba7cec85
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas05_specular.dds	.dds	699168			f946c196a500
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas06_diffuse.dds	.dds	2796320			3f16d74b911d
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas06_height.dds	.dds	2796340			aaf57a8860d0
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas06_normal.dds	.dds	2796320			a2cbbbc4baef
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas06_specular.dds	.dds	699168			f37ca6d8e826
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas07_diffuse.dds	.dds	2796320			5e119b5af3a6
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas07_height.dds	.dds	2796340			324222d3abfe
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas07_normal.dds	.dds	2796320			a260ba81c562
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas07_specular.dds	.dds	699168			4fd363aa513e
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas08_diffuse.dds	.dds	2796320			099041ca5c12
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas08_height.dds	.dds	2796340			1df7edd51df9
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas08_normal.dds	.dds	2796320			d139dd6ac7a2
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas08_specular.dds	.dds	699168			94181598f5fd
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas09_diffuse.dds	.dds	2796320			7bc48d5beb15
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas09_height.dds	.dds	2796340			d2604685d8e4
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas09_normal.dds	.dds	2796320			12b7cca173be
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/house_atlas09_specular.dds	.dds	699168			d56d0f9b971e
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/solarpanel_diffuse.dds	.dds	699176			3d0481803860
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/solarpanel_normal.dds	.dds	699176			b11fa3aef3f7
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/solarpanel_specular.dds	.dds	174888			b42dedb0fe8a
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/streetFlowerPot01_specular.dds	.dds	174888			e6c49a4509e0
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/streetFlowerPot02_diffuse.dds	.dds	349668			1c1a640596de
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/streetFlowerPot02_normal.dds	.dds	174888			61c3e178a6f2
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/windowsCurtainsBlack_diffuse.dds	.dds	1398244			cfe026d997cf
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/windowsCurtainsBlue_diffuse.dds	.dds	1398244			8afc695dc327
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/windowsCurtainsGrey_diffuse.dds	.dds	1398244			11fac75b3569
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/windowsCurtainsRed_diffuse.dds	.dds	1398244			878c1fe7e31b
+map/import/placeables/i3d/placeables/FS25_modernHouseSet/textures/windowsCurtainsWhite_diffuse.dds	.dds	1398244			d5551524ef57
+map/import/placeables/ACH25_Cemetery/textures/StoneWall_Diffuse.dds	.dds	327808			676b08aa6070
+map/import/placeables/ACH25_Cemetery/textures/StoneWall_Normal.dds	.dds	327808			aad6b37d7763
+map/import/placeables/ACH25_Cemetery/textures/hotelLarge01Logo_diffuse.dds	.dds	1048704			532d014ca8ad
+map/import/placeables/ACH25_Cemetery/textures/infrastructureWalls_diffuse.dds	.dds	2796320			c893da04768e
+map/import/placeables/ACH25_Cemetery/textures/infrastructureWalls_normal.dds	.dds	2796320			2bb6cf6b76c5
+map/import/placeables/ACH25_Cemetery/textures/pierre10c.dds	.dds	65664			d1abdb6c4648
+map/import/placeables/ACH25_Cemetery/textures/pierre11b.dds	.dds	262272			1be5662d7317
+map/import/placeables/ACH25_Cemetery/textures/pierre11g.dds	.dds	262272			980f8f4092e1
+map/import/placeables/ACH25_Cemetery/textures/pierre11w.dds	.dds	262272			a8ee77743a6f
+map/import/placeables/ACH25_Cemetery/textures/pierre12b.dds	.dds	262272			55ddb6387a19
+map/import/placeables/ACH25_Cemetery/textures/pierre13old.dds	.dds	131200			4ce86d0baf6f
+map/import/placeables/ACH25_Cemetery/textures/pierre13w.dds	.dds	131200			9bf6cf7c5ad6
+map/import/placeables/ACH25_Cemetery/textures/pierre2b.dds	.dds	131200			d54a9ab3c20c
+map/import/placeables/ACH25_Cemetery/textures/pierre2g.dds	.dds	131200			3a62ee2194ba
+map/import/placeables/ACH25_Cemetery/textures/pierre2w.dds	.dds	131200			525408ffb409
+map/import/placeables/ACH25_Cemetery/textures/tombe1.dds	.dds	16512			013f5cabfcc4
+map/import/placeables/ACH25_Cemetery/textures/tombe10a.dds	.dds	65664			875d539e777a
+map/import/placeables/ACH25_Cemetery/textures/tombe2.dds	.dds	65664			0984daa57495
+map/import/placeables/ACH25_Cemetery/textures/tombe3.dds	.dds	65664			5555da3f9811
+map/import/placeables/ACH25_Cemetery/textures/tombe4.dds	.dds	65664			2f77b2a7af09
+map/import/placeables/ACH25_Cemetery/textures/tombe5.dds	.dds	65664			875d539e777a
+map/import/placeables/ACH25_Cemetery/textures/tombe8a.dds	.dds	65664			875d539e777a
+map/import/placeables/ACH25_Cemetery/textures/tombe9c.dds	.dds	65664			c24921389985
+map/import/placeables/FS25_Deko_Accessories_XXL_prefab/textures/waterplants_diffuse.dds	.dds	5592560			1b80c76b4d43
+map/import/placeables/FS25_Deko_Accessories_XXL_prefab/textures/waterplants_normal.dds	.dds	699192			cf8fcc28ee97
+map/import/placeables/FS25_Deko_Accessories_XXL_prefab/textures/waterplants_specular.dds	.dds	174904			c651af12214a
+map/import/placeables/FS25_signAGCO/textures/agcoLogo.dds	.dds	2796368			fea54147181d
+map/import/placeables/FS25_signAGCO/textures/concrete_test.dds	.dds	262272			8af10eb33109
+map/import/placeables/FS25_signAGCO/textures/concrete_wall_normal.dds	.dds	699192			ad0946a55a63
+map/import/placeables/FS25_signAGCO/textures/concrete_wall_spec.dds	.dds	699192			e9ae4dcbedbe
+map/import/placeables/FS25_signAGCO/textures/gleanerLogo.dds	.dds	349680			b5443e5ad8f0
+map/import/placeables/FS25_signAGCO/textures/newIdeaLogo.dds	.dds	699216			b951878d700d
+map/import/placeables/FS25_signAGCO/textures/sunflowerLogo.dds	.dds	699216			06e5762bf81d
+map/import/placeables/FS25_signAGCO/textures/whiteLogo.dds	.dds	349680			e6cabe16a514
+map/config/aiSystem.xml	.xml	232			10b35822cc9b
+map/config/collectibles.xml	.xml	4486			f485f5f07a1b
+map/config/colorGrading.xml	.xml	849			ba6961619391
+map/config/colorGradingNight.xml	.xml	952			be054bac4a17
+map/config/environment.xml	.xml	40079			1e7832b686b2
+map/config/farmlands.xml	.xml	11979			d9e60c80d6e2
+map/config/fieldGround.xml	.xml	833			2ba13910e5ff
+map/config/fields.xml	.xml	438			ee85a01d1289
+map/config/handTools.xml	.xml	318			83c7de2843a5
+map/config/items.xml	.xml	211			e27c8fb4f8cd
+map/config/placeables.xml	.xml	1165401			8380bb60e4cd
+map/config/placeables_bak.xml	.xml	74			d6d2ea85f554
+map/config/sounds.xml	.xml	300300			2a5233753ce0
+map/config/storeItems.xml	.xml	5156			0a965bd538c6
+map/config/trafficSystem.xml	.xml	2130			de5e7fd70cd3
+map/config/vehicles.xml	.xml	2287			40ed1e74af97
+map/config/weed.xml	.xml	403			b4d77d519a54
+map/config/80s_USTraffic/emissive.dds	.dds	174904			985ffa69dc93
+map/config/80s_USTraffic/tire.dds	.dds	11064			1d51ce5b3789
+map/config/80s_USTraffic/trafficSystem.xml	.xml	1557			9a400b0cfa16
+map/config/80s_USTraffic/vehicleShader.xml	.xml	77177			fdb172a314bc
+map/config/80s_USTraffic/86_Chevy_Silverado/86_Silverado.xml	.xml	3574			1a510021c6fe
+map/config/80s_USTraffic/86_Chevy_Silverado/Chevy.i3d	.i3d	13168			226a4bf84233
+map/config/80s_USTraffic/86_Chevy_Silverado/Chevy.i3d.shapes	.shapes	2187008			23b92313e36a
+map/config/80s_USTraffic/86_Chevy_Silverado/tekstura.dds	.dds	174904			3e76beec23b7
+map/config/80s_USTraffic/88_Chevy_Astro/88_Astro.xml	.xml	3518			aa98e46f3854
+map/config/80s_USTraffic/88_Chevy_Astro/Astro.i3d	.i3d	12089			a5e4d75627a4
+map/config/80s_USTraffic/88_Chevy_Astro/Astro.i3d.shapes	.shapes	7732988			55b229f46837
+map/config/80s_USTraffic/88_Chevy_Astro/lightsb.dds	.dds	43832			d6889e4c3b2d
+map/config/80s_USTraffic/79_Ford_E250/79_E250.xml	.xml	3559			c875c0e402c9
+map/config/80s_USTraffic/79_Ford_E250/E250.i3d	.i3d	12609			ae31c5670ae7
+map/config/80s_USTraffic/79_Ford_E250/E250.i3d.shapes	.shapes	3572420			28366f3c38ee
+map/config/80s_USTraffic/86_Buick_Century/86_Century.xml	.xml	3516			619f9a128620
+map/config/80s_USTraffic/86_Buick_Century/Buick.i3d	.i3d	13261			299e03313a41
+map/config/80s_USTraffic/86_Buick_Century/Buick.i3d.shapes	.shapes	15596492			073679683987
+map/config/80s_USTraffic/86_Buick_Century/dash.dds	.dds	43832			5b69422c4120
+map/config/80s_USTraffic/86_Buick_Century/dash2.dds	.dds	43832			aa704a0aa1bf
+map/config/80s_USTraffic/88_Chevy_Camaro/88_Camaro.xml	.xml	3458			6789cc1e1600
+map/config/80s_USTraffic/88_Chevy_Camaro/Camaro.i3d	.i3d	14259			9ca4bdb5ac0e
+map/config/80s_USTraffic/88_Chevy_Camaro/Camaro.i3d.shapes	.shapes	2782968			245879b1df43
+map/config/80s_USTraffic/88_Chevy_Camaro/base.dds	.dds	174904			a3017a7520e1
+map/config/80s_USTraffic/88_Chevy_Camaro/wheel.dds	.dds	43832			7683177d1563
+map/config/80s_USTraffic/74_Dodge_Monaco/74_Monaco.xml	.xml	3687			8169e61b4444
+map/config/80s_USTraffic/74_Dodge_Monaco/Monaco.i3d	.i3d	12910			2c25c207f2c2
+map/config/80s_USTraffic/74_Dodge_Monaco/Monaco.i3d.shapes	.shapes	2655344			887b5ed112cb
+map/config/80s_USTraffic/74_Dodge_Monaco/tire.dds	.dds	11064			1d51ce5b3789
+map/config/80s_USTraffic/88_GMC_Sierra/87_Sierra.xml	.xml	3504			ac96ba24d99c
+map/config/80s_USTraffic/88_GMC_Sierra/GMC.i3d	.i3d	12238			62d8a6347f05
+map/config/80s_USTraffic/88_GMC_Sierra/GMC.i3d.shapes	.shapes	5130356			e2cb6b51758c
+map/config/80s_USTraffic/88_GMC_Sierra/textures/brake.dds	.dds	174904			32474c1d5eca
+map/config/80s_USTraffic/88_GMC_Sierra/textures/metal.dds	.dds	11064			135de645ebc2
+map/config/80s_USTraffic/88_GMC_Sierra/textures/steel_rim1.dds	.dds	174904			d9a82ec15de3
+map/config/80s_USTraffic/88_GMC_Sierra/textures/uniroyal.dds	.dds	174904			a2bdafabbfe1
+map/config/80s_USTraffic/87_Crown_Vic/87_Crown_Vic.xml	.xml	3457			2d3d3b80a6b9
+map/config/80s_USTraffic/87_Crown_Vic/CrownVic.i3d	.i3d	13431			a14339fc5de0
+map/config/80s_USTraffic/87_Crown_Vic/CrownVic.i3d.shapes	.shapes	7449904			b0a2b53667e4
+map/config/80s_USTraffic/86_Chevy_Caprice/86_Caprice.xml	.xml	3526			bd952a31310d
+map/config/80s_USTraffic/86_Chevy_Caprice/Caprice.i3d	.i3d	13117			effa5566b75c
+map/config/80s_USTraffic/86_Chevy_Caprice/Caprice.i3d.shapes	.shapes	929916			b871d21c5f77
+map/config/80s_USTraffic/86_Chevy_Caprice/texture1.dds	.dds	174904			32f9fa3da365
+map/config/80s_USTraffic/84_Ford_F150/84_F150.xml	.xml	3572			09bc212a9ded
+map/config/80s_USTraffic/84_Ford_F150/F150.i3d	.i3d	13080			ebb2a82dbb74
+map/config/80s_USTraffic/84_Ford_F150/F150.i3d.shapes	.shapes	7449904			450328e98538
+map/config/80s_USTraffic/84_Ford_F150/lights3.dds	.dds	43832			893115d66c86
+map/config/80s_USTraffic/88_Oldsmobile_Classic/88_Oldsmobile.xml	.xml	3488			2155ae9ec1ea
+map/config/80s_USTraffic/88_Oldsmobile_Classic/Oldsmobile.i3d	.i3d	11286			2e1547af86c3
+map/config/80s_USTraffic/88_Oldsmobile_Classic/Oldsmobile.i3d.shapes	.shapes	1234100			bef82dae7c6e
+map/config/80s_USTraffic/88_Oldsmobile_Classic/badge.dds	.dds	43856			9a4df0d3ea6a
+map/config/80s_USTraffic/84_Grand_Cherokee/17in.dds	.dds	87536			b168a0928f1b
+map/config/80s_USTraffic/84_Grand_Cherokee/84_Grand_Cherokee.xml	.xml	3457			d6cb893e85eb
+map/config/80s_USTraffic/84_Grand_Cherokee/Jeep.i3d	.i3d	11212			dc95497be70e
+map/config/80s_USTraffic/84_Grand_Cherokee/Jeep.i3d.shapes	.shapes	5723632			1127cb156c38
+map/licensePlates/licensePlatesPL.i3d	.i3d	8471			24ead62b3670
+map/licensePlates/licensePlatesPL.i3d.shapes	.shapes	22496			807699262c77
+map/licensePlates/licensePlatesPL.xml	.xml	6223			6552a07aea13
+map/licensePlates/licensePlates_diffuse.png	.png	204981	512x512	RGBA	0a70fa7c6d30
+map/licensePlates/licensePlates_diffuseEU.png	.png	215287	512x512	RGBA	acef8ccdbf36
+water/polygon_water_mask.png	.png	168297	12288x12288	L	5c9f2fc10b83

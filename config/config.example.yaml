@@ -1,0 +1,94 @@
+# Config de ejemplo de MapForge.
+#
+# Rutas relativas: se resuelven contra el directorio donde vive este YAML.
+# Los grupos de "settings" espejan generation_settings.json de Maps4FS
+# (defaults = los del artefacto golden); todo es opcional salvo project/map/inputs.
+
+project:
+  name: "Mi Mapa"                     # nombre del proyecto (título del mod)
+  output_dir: "../output/mi_mapa"     # directorio de salida (estructura de mod FS25)
+
+map:
+  size: 8192                          # lado del mapa en metros/píxeles (2048/4096/8192/16384)
+  rotation: 0                         # grados; si != 0 el lienzo rotado es size × 1.5
+  latitude: 43.145692357357156        # centro del mapa (lat)
+  longitude: -95.1450786604236        # centro del mapa (lon)
+  output_size: null                   # opcional: reescalar la salida a otro tamaño
+
+inputs:
+  # DEM uint16 a 1 px/m del tamaño background (map.size + 4096).
+  heightmap: "../FS25_Valle_Bonito/valle_bonito.png"
+  # OSM XML local (sin descargas).
+  osm: "../FS25_Valle_Bonito/custom_osm.osm"
+  # Template FS25: zip de Maps4FS o directorio ya extraído.
+  template: "../maps4fs-1.8.242/data/fs25-map-template.zip"
+  # Schemas (por defecto, los de config/).
+  texture_schema: "texture_schema.json"
+  grle_schema: "grle_schema.json"
+
+settings:
+  # --- campos propios de MapForge ---
+  seed: 42                            # seed global: dissolve + textura procedural
+  input_height_scale: 0.003891050583657588   # metros = uint16 × escala (255/65535 = 1/257)
+
+  dem:
+    custom_dem: false                 # true: el heightmap YA es el DEM final normalizado (sin pipeline S2)
+    adjust_terrain_to_ground_level: true
+    multiplier: 1
+    minimum_height_scale: 255
+    plateau: 15                       # metros: shift del mínimo del terreno
+    ceiling: 15                       # metros de margen sobre el máximo (height_scale)
+    water_depth: 15
+    blur_radius: 3                    # radio del blur gaussiano (impar; 0 = off)
+    add_foundations: false            # fuera de alcance (espejo)
+    water_bank_steepness: 2
+
+  background:
+    generate_background: true
+    generate_water: false             # fuera de alcance (espejo)
+    water_blurriness: 20
+    remove_center: true               # recorta las caras del cuadrado central map.size
+    flatten_roads: true               # feature 3.x no replicada (espejo)
+    flatten_water: false
+    # --- subgrupo propio de MapForge: background procedural (sin satélite) ---
+    procedural:
+      resize_factor: 8                # subsample del DEM para el mesh (12288 → 1536)
+      apply_decimation: true          # decimación quadric (fast_simplification)
+      decimation_percent: 25          # % de caras conservadas
+      decimation_aggression: 3
+      texture_size: 4096              # lado de la textura procedural
+      noise_octaves: 5                # octavas del ruido fBm
+      palette_low: [101, 84, 59]      # RGB zonas bajas (tierra)
+      palette_high: [78, 105, 54]     # RGB zonas altas (verde)
+
+  grle:
+    farmland_margin: 5                # buffer mitre en px (1 px = 1 m) antes de ÷2
+    add_farmyards: true
+    base_price: 12500                 # pricePerHa de farmlands.xml
+    price_scale: 100
+    add_grass: true
+    base_grass: "meadow"
+    random_plants: false
+    fill_empty_farmlands: true        # píxeles 0 → 255
+
+  i3d:
+    add_trees: true                   # fuera de alcance: bosques excluidos (espejo)
+    forest_density: 10
+    tree_limit: 12500
+    trees_relative_shift: 20
+    spline_density: 2                 # puntos extra entre cada par de puntos
+    add_reversed_splines: true
+    field_splines: false
+    license_plate_prefix: "M4F"
+    self_clear: false
+    displacement_layer_max_height: 0.2
+    # --- campos propios de MapForge ---
+    displacement_layer_size_factor: 8       # size = map.size × factor (FACT-source)
+    displacement_layer_cell_size_base: 16384  # cellSize = base / map.size (inferido)
+
+  texture:
+    dissolve: false                   # reparto aleatorio por píxel entre sublayers
+    fields_padding: 3                 # buffer(-padding) de los fields antes de rasterizar
+    skip_drains: true
+    use_cache: false                  # sin efecto en MapForge (espejo)
+    use_precise_tags: false

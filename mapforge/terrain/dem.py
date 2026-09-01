@@ -26,10 +26,16 @@ Y la fase de background (``component/background.py.process``), que produce los
 ficheros en este orden (el mismo estado final que Maps4FS):
 
 - ``background/not_substracted.png`` = DEM completo ANTES de restar agua
-- ``background/not_resized.png`` = crop central ``map_size²`` (pre-resta)
+- ``background/not_resized.png`` = crop central ``map_size²`` (pre-resta,
+  SIN aplanar)
+- [aplanado] ``background.flatten_roads`` / ``dem.flatten_farmyard``: se
+  aplican sobre el DEM completo de ``background_size²``, no sobre el crop
+  (FACT: en el golden ``crop(FULL.png)`` es byte a byte
+  ``not_resized_with_flattened_roads.png``). Si se aplanó, se escribe
+  ``background/not_resized_with_flattened_roads.png`` = crop del resultado.
 - [hook] si hay máscara de agua y ``water_depth`` > 0: restar
   ``water_depth × 65535/height_scale`` bajo la máscara (erosión 3×3 ×1)
-- ``background/FULL.png`` = DEM completo (post-resta si hubo)
+- ``background/FULL.png`` = DEM completo (aplanado + post-resta si hubo)
 - ``map/data/dem.png`` = crop central de FULL → resize ``(map_size+1)²``
   INTER_LINEAR
 
@@ -50,11 +56,10 @@ Utilidades reutilizables (Fase 6, splines):
 Limitaciones documentadas:
 
 - ``rotation != 0`` no está soportado en esta fase (el golden usa 0).
-- ``flatten_roads`` es una feature 3.x no replicada (ver
-  ``docs/analisis_forense_maps4fs.md`` §S9): el dem.png del golden se generó
-  desde el DEM con carreteras aplanadas y con un resize tipo NEAREST de 3.x;
-  nuestro INTER_LINEAR (FACT-source 1.8) produce diferencias sub-métricas que
-  la validación de fase cuantifica.
+- El resize final sigue siendo INTER_LINEAR (FACT-source 1.8). El golden de
+  3.1.2 usó un resize tipo NEAREST, que es la causa dominante de la diferencia
+  residual de ``map/data/dem.png`` una vez replicado el aplanado; se documenta
+  en ``docs/validacion_golden.md`` y no se cambia.
 """
 
 from __future__ import annotations
@@ -66,6 +71,8 @@ from typing import TYPE_CHECKING, Any
 
 import cv2
 import numpy as np
+
+from mapforge.terrain.flatten import flatten_terrain, load_flatten_geometry
 
 if TYPE_CHECKING:
     from mapforge.project import Project
@@ -115,8 +122,11 @@ class DemPipeline:
     - ``mesh_z_scaling_factor`` (float): ``65535 / height_scale``.
     - ``height_scale_multiplier`` (float): ``height_scale / 255``.
     - ``dem_full`` (uint16 ``background_size²``): estado final de FULL.png.
-    - ``dem_not_resized`` (uint16 ``map_size²``): crop central pre-resta
-      (la fuente de muestreo de splines).
+    - ``dem_not_resized`` (uint16 ``map_size²``): crop central pre-resta y
+      **con el aplanado ya aplicado** — la fuente de muestreo de splines, para
+      que los CVs sigan la superficie de la calzada.
+    - ``dem_not_resized_raw`` (uint16 ``map_size²``): el mismo crop SIN aplanar,
+      que es lo que se escribe en ``background/not_resized.png``.
     - ``dem_map`` (uint16 ``(map_size+1)²``): contenido de map/data/dem.png.
     - ``info`` (dict): estadísticas por etapa + height_scale (se vuelca a
       ``dem_info.json`` en el directorio de salida).
@@ -141,8 +151,10 @@ class DemPipeline:
         self.height_scale_multiplier: float | None = None
         self.dem_full: np.ndarray | None = None
         self.dem_not_resized: np.ndarray | None = None
+        self.dem_not_resized_raw: np.ndarray | None = None
         self.dem_map: np.ndarray | None = None
         self.info: dict[str, Any] = {}
+        self.flatten_stats: dict[str, Any] = {}
 
     # ------------------------------------------------------------ pipeline
 
@@ -324,10 +336,27 @@ class DemPipeline:
         not_substracted_path = paths.background_dir / "not_substracted.png"
         cv2.imwrite(str(not_substracted_path), full_raw)
 
-        # not_resized = crop central map_size² (pre-resta, como Maps4FS).
-        self.dem_not_resized = self._cut_out_center(full_raw, map_size // 2)
-        self.update_info("not_resized", self.dem_not_resized)
-        cv2.imwrite(str(paths.background_dir / "not_resized.png"), self.dem_not_resized)
+        # not_resized = crop central map_size² (pre-resta y pre-aplanado, como
+        # Maps4FS: el golden guarda aquí el DEM sin tocar).
+        self.dem_not_resized_raw = self._cut_out_center(full_raw, map_size // 2)
+        self.update_info("not_resized", self.dem_not_resized_raw)
+        cv2.imwrite(
+            str(paths.background_dir / "not_resized.png"), self.dem_not_resized_raw
+        )
+
+        # Aplanado de carreteras/farmyards sobre el DEM COMPLETO (FACT: en el
+        # golden crop(FULL.png) == not_resized_with_flattened_roads.png).
+        flattened = self._apply_flatten(full_raw)
+        if flattened is not None:
+            full_raw = flattened
+            self.update_info("flattened", full_raw)
+            self.dem_not_resized = self._cut_out_center(full_raw, map_size // 2)
+            cv2.imwrite(
+                str(paths.background_dir / "not_resized_with_flattened_roads.png"),
+                self.dem_not_resized,
+            )
+        else:
+            self.dem_not_resized = self.dem_not_resized_raw
 
         # Hook water_depth: resta bajo máscara (off por defecto en Fase 1).
         full = full_raw
@@ -352,6 +381,65 @@ class DemPipeline:
             output_size,
             paths.background_dir,
         )
+
+    def _apply_flatten(self, full_raw: np.ndarray) -> np.ndarray | None:
+        """Aplana carreteras/farmyards sobre el DEM completo del background.
+
+        Se ejecuta sobre ``background_size²`` (no sobre el crop) y necesita
+        ``info_layers/textures.json``, que produce la etapa de texturas — por
+        eso ``textures`` corre antes que ``dem`` en el pipeline. Si el JSON no
+        está (p. ej. ``skip_stages=['textures']``) se omite con warning en vez
+        de romper la generación.
+
+        Returns:
+            El DEM aplanado, o ``None`` si no había nada que aplanar.
+        """
+        settings = self.project.settings
+        do_roads = bool(settings.background.flatten_roads)
+        do_farmyards = bool(getattr(settings.dem, "flatten_farmyard", False))
+        if not (do_roads or do_farmyards):
+            return None
+
+        paths = self.project.paths
+        roads, widths, farmyards = load_flatten_geometry(
+            paths.textures_json, paths.texture_schema
+        )
+        if not roads and not farmyards:
+            self.logger.warning(
+                "aplanado omitido: %s no tiene geometría (¿se saltó la etapa "
+                "de texturas?)",
+                paths.textures_json,
+            )
+            return None
+
+        offset = (self.project.map.background_size - self.project.map.size) // 2
+        flattened, stats = flatten_terrain(
+            full_raw,
+            offset=offset,
+            roads=roads if do_roads else None,
+            road_widths=widths,
+            farmyards=farmyards if do_farmyards else None,
+            roads_feather=settings.background.flatten_roads_feather,
+            roads_smooth=settings.background.flatten_roads_smooth,
+            farmyard_feather=getattr(settings.dem, "flatten_farmyard_feather", 8.0),
+            farmyard_max_relief=getattr(
+                settings.dem, "flatten_farmyard_max_relief", 10.0
+            ),
+            units_per_metre=self.mesh_z_scaling_factor or 257.0,
+        )
+        if not stats:
+            return None
+        changed = int(np.count_nonzero(flattened != full_raw))
+        stats["changed_pixels"] = changed
+        stats["changed_fraction"] = round(changed / full_raw.size, 6)
+        self.flatten_stats = stats
+        self.info["flatten"] = stats
+        self.logger.info(
+            "aplanado aplicado: %d px modificados (%.3f %% del DEM del background)",
+            changed,
+            100.0 * changed / full_raw.size,
+        )
+        return flattened
 
     @staticmethod
     def _cut_out_center(image: np.ndarray, half_size: int) -> np.ndarray:

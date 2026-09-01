@@ -93,6 +93,27 @@ Notas de semántica:
   el PNG se toma como DEM final normalizado (así se generó el golden).
 - **Seed**: alimenta el `dissolve` de texturas y el ruido fBm de la textura
   del background; misma config + misma seed ⇒ misma salida.
+- **Aplanado del terreno** (`mapforge/terrain/flatten.py`), sobre el DEM
+  completo del background y antes del resize:
+  - `background.flatten_roads` (**on** por defecto) aplana el corredor de
+    cada vía: la calzada queda plana a lo ancho (radio = `width` del schema)
+    siguiendo un perfil longitudinal suavizado
+    `background.flatten_roads_smooth` metros (25 por defecto), y el talud se
+    integra con el terreno a lo largo de `background.flatten_roads_feather`
+    metros (`null` = el doble del ancho de la vía). La transición usa
+    `smoothstep`, así que no deja escalón ni pliegue.
+  - `dem.flatten_farmyard` (**off** por defecto, extensión propia de
+    MapForge) aplana el interior de cada `landuse=farmyard` a la media del
+    área, con feather `dem.flatten_farmyard_feather` metros hacia fuera.
+    `dem.flatten_farmyard_max_relief` (10 m) descarta los recintos con
+    demasiado desnivel interior: `landuse=farmyard` se usa en OSM con mucha
+    manga ancha y hay polígonos de cientos de hectáreas que no tiene sentido
+    aplanar. Los farmyards se aplanan **antes** que las vías, para que un
+    camino que cruza una era herede su altura plana.
+  - Con cualquiera de los dos activo se escribe además
+    `background/not_resized_with_flattened_roads.png`, y las splines de
+    tráfico muestrean el DEM aplanado. Detalle y métricas en
+    `docs/analisis_flatten_roads.md`.
 - Los settings aceptan también las claves estilo Maps4FS
   (`DEMSettings`, `BackgroundSettings`, …), por lo que un
   `generation_settings.json` de Maps4FS se puede volcar directamente.
@@ -102,15 +123,20 @@ Notas de semántica:
 Pipeline orquestado por `mapforge/generator.py` en este orden:
 
 ```text
-template → DEM → OSM/texturas → grle_layers → farmlands → fields
+template → OSM/texturas → DEM → grle_layers → farmlands → fields
          → splines → escritor i3d → background
 ```
+
+Las texturas van antes que el DEM porque el aplanado de carreteras y farmyards
+consume `info_layers/textures.json` (`roads_polylines` y `farmyards`) — el mismo
+orden que se observa en los logs de Maps4FS 3.x.
 
 | Módulo | Responsabilidad |
 |---|---|
 | `mapforge/project.py`, `settings.py` | modelo de proyecto (rutas, params, seed) y dataclasses de settings |
 | `mapforge/fs25/template.py` | despliegue del template FS25 (zip o directorio) |
 | `mapforge/terrain/dem.py` | pipeline DEM S2: metros → multiplier → shift → height_scale → normalizar → blur → FULL/not_resized/dem.png |
+| `mapforge/terrain/flatten.py` | aplanado del terreno bajo carreteras (`flatten_roads`) y farmyards (`flatten_farmyard`), con talud `smoothstep` y composición ponderada |
 | `mapforge/osm/` | parser OSM XML propio (nodos/ways/relations → shapely), matching de tags estilo osmnx y proyección bbox+latlon→píxel |
 | `mapforge/textures/` | weight maps por prioridad ("el primer claim gana"), base = NOT cumulative, dissolve seeded, máscaras `PG_*` y `info_layers/textures.json` |
 | `mapforge/farmlands/` + `fs25/grle_layers.py` | infoLayers/densityMaps en cero + `infoLayer_farmlands.png` (IDs ÷2, tope 254, fill 255) + `farmlands.xml` |
@@ -119,6 +145,7 @@ template → DEM → OSM/texturas → grle_layers → farmlands → fields
 | `mapforge/fs25/i3d_writer.py` | map.i3d (heightScale, DisplacementLayer, sun, refs de background), map.xml, modDesc.xml |
 | `mapforge/background/` | mesh del terreno de fondo (subsample, decimación quadric, remove_center) + textura procedural fBm + export OBJ/i3d en 4 partes |
 | `tools/compare_golden.py` | harness de validación contra `FS25_Valle_Bonito/` |
+| `tools/analiza_flatten.py` | evidencia forense de `flatten_roads` + métricas de calidad del talud y de suavidad de las splines |
 
 Cada componente deja su telemetría en `generation_info.json` (estadísticas +
 tiempo por etapa). El generador admite `skip_stages` (API Python) para saltar
@@ -151,9 +178,15 @@ código fuente disponible es 1.8.242; impacto cuantificado en
   en los weights de fields.
 - **Road meshes** (`roads/`, `assets/roads/`, máscaras PG a 9216²): no se
   generan mallas 3D de carreteras.
-- **`flatten_roads`**: el DEM no aplana las carreteras; `map/data/dem.png`
-  difiere del golden en las carreteras (≤ 4 m, > 1 m solo en el 0.03 % de
-  los píxeles) y las splines heredan diferencias de Z ≤ 1.2 m.
+- **Regla de altura exacta de `flatten_roads`**: la feature está
+  implementada, pero con algoritmo propio (ver arriba). La regla con la que
+  3.x calcula el perfil longitudinal de la calzada no es recuperable — su
+  código no está disponible y el par antes/después del golden no la
+  determina —, así que el DEM aplanado no coincide bit a bit con el suyo:
+  `docs/analisis_flatten_roads.md` recoge la evidencia y las métricas.
+- **Resize final del DEM**: MapForge usa `INTER_LINEAR` (FACT-source 1.8) y
+  3.x un resize tipo NEAREST. Es la causa dominante (~31.5 de 32.8 puntos)
+  de la diferencia residual de `map/data/dem.png` contra el golden.
 
 Exclusiones de alcance del proyecto (decisión, no limitación técnica):
 bosques/árboles, buildings, postes y luces (`BC_*`/`PS_*`), agua
@@ -169,5 +202,8 @@ motor/editor al abrir/guardar el mapa.
   (Parte I: formatos del artefacto; Parte II: algoritmos del source 1.8).
 - `docs/validacion_golden.md` — validación E2E contra el golden, tabla por
   artefacto con % de coincidencia y desviaciones explicadas.
+- `docs/analisis_flatten_roads.md` — ingeniería inversa de `flatten_roads`
+  (evidencia FACT/HYPOTHESIS del golden), diseño del algoritmo propio y de
+  `flatten_farmyard`, y métricas de calidad del terreno resultante.
 - `FS25_Valle_Bonito/` — golden output de referencia (mapa real generado con
   Maps4FS 3.1.2) con sus inputs (`valle_bonito.png`, `custom_osm.osm`).

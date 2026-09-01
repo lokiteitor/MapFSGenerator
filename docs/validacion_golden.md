@@ -18,13 +18,16 @@ pipeline de MapForge y comparación contra el artefacto real de Maps4FS 3.1.2
 - Settings: espejo de `FS25_Valle_Bonito/generation_settings.json`
   (`config/valle_bonito.yaml`), con `dem.custom_dem: true` como el
   `main_settings.json` del golden.
-- Ejecución: **61 s** en total (dem 6.6 s, texturas 15.3 s, grle 11.3 s,
-  background 27.6 s), sin excepciones. Telemetría completa en
-  `output/valle_bonito/generation_info.json`.
-- Resumen de `compare_golden.py`: **147 ficheros comparados, 96 idénticos
-  byte a byte (a nivel píxel/atributo), 51 con diferencias, 0 errores**;
-  439 ficheros del golden no se generan (ver "No generado" abajo) y 10
+- Ejecución: **72 s** en total (texturas 17.4 s, dem 12.6 s incluido el
+  aplanado de las 88 vías, grle 13.8 s, background 28.0 s), sin excepciones.
+  Telemetría completa en `output/valle_bonito/generation_info.json`.
+- Resumen de `compare_golden.py`: **148 ficheros comparados, 96 idénticos
+  byte a byte (a nivel píxel/atributo), 52 con diferencias, 0 errores**;
+  438 ficheros del golden no se generan (ver "No generado" abajo) y 10
   ficheros extra propios de MapForge.
+- El fichero comparado que se suma respecto de la validación anterior es
+  `background/not_resized_with_flattened_roads.png`, que MapForge ya genera
+  desde que `flatten_roads` está implementado.
 
 ## Tabla por artefacto
 
@@ -36,14 +39,15 @@ columna final y detalladas en la sección siguiente.
 |---|---|---|
 | `background/not_substracted.png` | **100 %** (0 px distintos) | — |
 | `background/not_resized.png` | **100 %** (0 px distintos) | — |
-| `background/FULL.png` | 99.02 % | 0.98 % de píxeles: el golden resta `water_depth` bajo la máscara de agua (pipeline de agua 3.x; hook desactivado en MapForge, `generate_water` fuera de alcance) |
-| `map/data/dem.png` | 66.99 % px iguales; **>1 m solo 0.027 %** (max 4.0 m, p99 = 0.18 m) | `flatten_roads` (3.x, no replicada) aplana carreteras antes del resize, y 3.x usa resize tipo NEAREST vs INTER_LINEAR (FACT 1.8). Contra el DEM golden aplanado + NEAREST la diferencia cae a 0.022 % (ver `output/validacion_dem/delta_stats.json`) |
+| `background/FULL.png` | 99.13 % (antes 99.02 %) | 0.87 % de píxeles, max delta 1.97 m (antes 3.82 m): resto del `flatten_roads` del golden que nuestro algoritmo no reproduce exactamente (regla de altura de 3.x desconocida, ver `docs/analisis_flatten_roads.md` §F8). **Corrección:** esta diferencia no es la resta de `water_depth` como se documentaba antes — el golden se generó con `generate_water: false` y el 0.98 % original era íntegramente flatten_roads (FACT §F5) |
+| `background/not_resized_with_flattened_roads.png` | 98.05 % | Se genera desde que `flatten_roads` está implementado. Max delta 1.97 m, media 0.013 m, p99 0.19 m, **>1 m solo el 0.0035 %**: nuestro corredor es algo más ancho (`3×width` contra `2×width`) y el perfil objetivo se calcula distinto |
+| `map/data/dem.png` | 67.22 % px iguales (antes 66.99 %); **>1 m solo 0.019 %** (antes 0.027 %; max 3.24 m, antes 4.01 m) | Dominado por el resize: 3.x usa NEAREST y MapForge INTER_LINEAR (FACT-source 1.8, no se cambia). Con el DEM aplanado del propio golden, NEAREST da 0.022 % y INTER_LINEAR 31.54 % (`output/validacion_dem/delta_stats.json`), así que el resize explica ~31.5 de los 32.8 puntos |
 | `map/data/*_weight.png` (86 weights comparados) | 58 idénticos al 100 %; los 28 restantes ≥ 90.8 % (mediana de diferencia 0.33 %) | Preprocessor de fields 3.x (padding 4.0, split/merge → mudDark 0.58 %), capas `*_extended_*`/`_bgforest_` de 3.x que reasignan píxeles de roads/forest (asphalt* 0.06–0.63 %, forestGrass01 9.18 % peor caso), y bosques excluidos del proyecto |
 | `map/data/infoLayer_farmlands.png` | **99.997 % bajo el mapeo biyectivo de IDs**; máscara 255 idéntica (IoU 1.0); 192+255 IDs en ambos | Maps4FS 3.1.2 enumeró farmyards/fields en otro orden ⇒ los IDs son una permutación (186/192 con correspondencia exacta); el diff píxel a píxel crudo da 7.2 % por el renumerado (`output/validacion_farmlands/reporte_farmlands.json`) |
 | `map/config/farmlands.xml` | 192/192 entradas, `pricePerHa` idéntico | `npcName`/`priceScale` difieren (GRANDPA/0.6 en el golden): 3.x los cambió; 1.8 escribe FORESTER/1 (FACT-source replicado) |
 | resto de `infoLayer_*.png` (14) y `densityMap_*` (5 de 6) | **100 %** | Creados en cero según `grle_schema` — idénticos al golden |
 | `map/data/densityMap_fruits.png` | 70.74 % | `add_grass` (meadow=131 en canal B) no replicado: decisión del plan, capas GRLE en cero |
-| `map/splines.i3d` | 176/176 curvas, nombres/atributos idénticos; **XY de los 1664 CVs 100 % idénticos**; 626 CVs (37.6 %) difieren SOLO en Z ≤ 1.2 m | El golden muestreó Z del DEM con `flatten_roads` aplicado (3.x); MapForge muestrea el `not_resized` (idéntico al del golden pre-aplanado) |
+| `map/splines.i3d` | 176/176 curvas, nombres/atributos idénticos; **XY de los 1664 CVs 100 % idénticos**; 614 CVs (36.9 %) difieren SOLO en Z (media 0.018 m, max 1.58 m) | Ambos muestrean ya un DEM aplanado, pero con reglas de altura distintas (§F8). Antes de implementar `flatten_roads` eran 626 CVs contra un DEM sin aplanar |
 | `map/map.i3d` — nodos del escritor | **100 %**: `heightScale=255`, `lodTextureSize=8192`, DisplacementLayer `size=65536 cellSize=2 maxHeight=0.2`, sun bbox `∓4096,-128/148` idénticos al golden | — |
 | `map/map.i3d` — fields | **151/151 fields, centroides y nº de puntos exactos** (`output/validacion_fields/reporte_validacion_fields.json`) | El preprocessor 3.x no causó desviación medible en este mapa (los polígonos de textures.json coinciden) |
 | `map/map.i3d` — background | 4/4 `<File>` + `ReferenceNode background_terrain_part_0N` presentes en ambos | En el golden están agrupados bajo un TransformGroup `backgroundTerrain` (edición del editor/usuario); MapForge los emite en la raíz de Scene (patrón del plan) |
@@ -71,7 +75,6 @@ Por categoría — todo fuera del alcance acordado del proyecto:
   el motor genera los binarios): `*.grle`, `*.gdm`, `*.i3d.shapes`,
   `*_binary.i3d`, `overview/preview` DDS.
 - **Features 3.x no replicadas**: road meshes (`roads/`, `assets/roads/`),
-  `background/not_resized_with_flattened_roads.png` (flatten_roads),
   `unprocessedHeightMap.png`, `soilMap`, capas `BC_*`/`PS_*` (buildings,
   postes y luces), `*_extended_*`/`*_bgforest_*` weights, `assets/map_bounds/`,
   `background/textured_mesh/` y `FULL.obj`.
@@ -96,10 +99,16 @@ el usuario los borró del golden).
   100 %, splines con XY exacto, fields 151/151 exactos, farmlands
   geométricamente idénticos (permutación de IDs), infoLayers en cero 100 %,
   nodos i3d del escritor 100 %.
+- `flatten_roads` ya está implementado (`mapforge/terrain/flatten.py`), con un
+  algoritmo propio orientado a la calidad del terreno más que a la igualdad bit
+  a bit: el detalle, la evidencia forense y las métricas están en
+  `docs/analisis_flatten_roads.md`. Junto a él va `flatten_farmyard`, una
+  extensión propia apagada por defecto que no afecta a esta validación.
 - Todas las diferencias restantes son atribuibles a: (1) features 3.x
-  documentadas como no replicadas (preprocessor de fields, road meshes,
-  flatten_roads, agua, buildings/luces, add_grass), (2) contenido añadido a
-  mano por el usuario al golden, o (3) binarios que compila el GIANTS
+  documentadas como no replicadas (preprocessor de fields, road meshes, agua,
+  buildings/luces, add_grass) o replicadas con algoritmo propio (flatten_roads,
+  cuya regla de altura exacta de 3.x no es recuperable), (2) contenido añadido
+  a mano por el usuario al golden, o (3) binarios que compila el GIANTS
   Editor/motor.
 
 Reporte JSON completo: `output/reporte_golden_e2e.json` (y texto en

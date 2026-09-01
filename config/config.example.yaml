@@ -42,14 +42,26 @@ settings:
     blur_radius: 3                    # radio del blur gaussiano (impar; 0 = off)
     add_foundations: false            # fuera de alcance (espejo)
     water_bank_steepness: 2
+    # --- campos propios de MapForge: aplanado de farmyards (sin equivalente
+    #     en Maps4FS). Aplana el interior de cada landuse=farmyard a la media
+    #     del área; se aplica ANTES que flatten_roads.
+    flatten_farmyard: false           # off por defecto
+    flatten_farmyard_feather: 8.0     # metros de transición HACIA FUERA del recinto
+    flatten_farmyard_max_relief: 10.0 # m; descarta recintos con más desnivel
+                                      # interior (landuse=farmyard sobredimensionado
+                                      # en el OSM). null = sin límite
 
   background:
     generate_background: true
     generate_water: false             # fuera de alcance (espejo)
     water_blurriness: 20
     remove_center: true               # recorta las caras del cuadrado central map.size
-    flatten_roads: true               # feature 3.x no replicada (espejo)
-    flatten_water: false
+    flatten_roads: true               # aplana el corredor de cada vía en el DEM
+    flatten_water: false              # fuera de alcance (espejo)
+    # --- campos propios de MapForge: integración del talud con el terreno ---
+    flatten_roads_feather: null       # m de transición; null = 2 × width de la vía
+    flatten_roads_smooth: 25.0        # m de ventana del suavizado longitudinal
+                                      # del eje (quita baches; 0 = off)
     # --- subgrupo propio de MapForge: background procedural (sin satélite) ---
     procedural:
       resize_factor: 8                # subsample del DEM para el mesh (12288 → 1536)

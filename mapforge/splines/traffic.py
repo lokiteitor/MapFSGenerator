@@ -209,17 +209,27 @@ class TrafficSplinesWriter:
         return roads_polylines
 
     def _resolve_dem(self) -> "np.ndarray":
-        """DEM ``not_resized``: el pasado al constructor o el del disco."""
+        """DEM ``not_resized``: el pasado al constructor o el del disco.
+
+        En el fallback de disco se prefiere el DEM **aplanado** cuando existe:
+        los CVs deben seguir la superficie de la calzada, no el terreno crudo
+        que quedó bajo ella (es lo que hace el golden de Maps4FS 3.x).
+        """
         if self.dem_not_resized is not None:
             return self.dem_not_resized
-        path = self.project.paths.background_dir / "not_resized.png"
-        dem = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
-        if dem is None:
-            raise FileNotFoundError(
-                f"DEM not_resized no encontrado: {path} (ejecuta la fase DEM "
-                "o pasa dem_not_resized al constructor)"
-            )
-        return dem
+        background_dir = self.project.paths.background_dir
+        candidates = (
+            background_dir / "not_resized_with_flattened_roads.png",
+            background_dir / "not_resized.png",
+        )
+        for path in candidates:
+            dem = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
+            if dem is not None:
+                return dem
+        raise FileNotFoundError(
+            f"DEM not_resized no encontrado: {candidates[-1]} (ejecuta la fase "
+            "DEM o pasa dem_not_resized al constructor)"
+        )
 
     def _resolve_height_scale(self) -> int:
         """height_scale: el del constructor o el calculado por la Fase 1."""

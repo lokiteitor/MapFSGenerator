@@ -58,10 +58,16 @@ from mapforge.textures.engine import TextureEngine
 logger = logging.getLogger("mapforge.generator")
 
 #: Orden canónico de las etapas del pipeline (nombres aceptados en skip_stages).
+#:
+#: ``textures`` va antes que ``dem`` porque el aplanado de carreteras/farmyards
+#: consume ``info_layers/textures.json`` (``roads_polylines`` y ``farmyards``),
+#: igual que hace Maps4FS 3.x: en sus logs el componente Texture termina antes
+#: de que el Background aplane el DEM. La etapa de texturas solo depende del
+#: OSM y del proyecto, así que el intercambio no crea ninguna dependencia nueva.
 STAGE_ORDER: tuple[str, ...] = (
     "template",
-    "dem",
     "textures",
+    "dem",
     "grle_layers",
     "farmlands",
     "fields",
@@ -133,8 +139,8 @@ class Generator:
 
         stages: tuple[tuple[str, Callable[[], Any]], ...] = (
             ("template", self._stage_template),
-            ("dem", self._stage_dem),
             ("textures", self._stage_textures),
+            ("dem", self._stage_dem),
             ("grle_layers", self._stage_grle_layers),
             ("farmlands", self._stage_farmlands),
             ("fields", self._stage_fields),
@@ -195,6 +201,7 @@ class Generator:
             "mode": "custom_dem" if pipeline.custom_dem else "raw",
             "height_scale": pipeline.height_scale,
             "stages": pipeline.info,
+            "flatten": pipeline.flatten_stats,
         }
 
     def _stage_textures(self) -> dict[str, Any]:

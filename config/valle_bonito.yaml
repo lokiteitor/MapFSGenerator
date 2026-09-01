@@ -46,6 +46,10 @@ settings:
     remove_center: true
     flatten_roads: true
     flatten_water: false
+    # Defaults propios de MapForge (el golden no los tiene): talud = 2 × width
+    # de la vía y suavizado longitudinal del eje de 25 m.
+    flatten_roads_feather: null
+    flatten_roads_smooth: 25.0
     procedural:
       resize_factor: 8
       apply_decimation: true

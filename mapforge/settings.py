@@ -65,6 +65,16 @@ class DEMSettings(_SettingsBase):
     final uint16 normalizado y el pipeline S2 se omite — es el hook que
     :class:`mapforge.terrain.dem.DemPipeline` lee vía
     ``settings.dem.custom_dem`` y el modo con el que se generó el golden.
+
+    ``flatten_farmyard`` / ``flatten_farmyard_feather`` son **extensión propia
+    de MapForge**, sin equivalente en Maps4FS (ver
+    ``mapforge.terrain.flatten``): aplanan el terreno dentro de cada polígono
+    ``landuse=farmyard`` a la media del área, con una transición suave de
+    ``flatten_farmyard_feather`` metros hacia el terreno circundante.
+    ``flatten_farmyard_max_relief`` (metros, ``None`` = sin límite) descarta los
+    recintos con demasiado desnivel interior: ``landuse=farmyard`` se usa en OSM
+    con mucha manga ancha y aplanar un polígono de cientos de hectáreas dejaría
+    una meseta artificial rodeada de un talud enorme.
     """
 
     custom_dem: bool = False
@@ -77,6 +87,10 @@ class DEMSettings(_SettingsBase):
     blur_radius: int = 3
     add_foundations: bool = False  # fuera de alcance; se conserva por espejo
     water_bank_steepness: float = 2
+    # --- campos propios de MapForge ---
+    flatten_farmyard: bool = False
+    flatten_farmyard_feather: float = 8.0
+    flatten_farmyard_max_relief: float | None = 10.0
 
 
 @dataclass
@@ -106,14 +120,25 @@ class ProceduralBackgroundSettings(_SettingsBase):
 
 @dataclass
 class BackgroundSettings(_SettingsBase):
-    """Espejo de ``BackgroundSettings`` + subgrupo propio ``procedural``."""
+    """Espejo de ``BackgroundSettings`` + subgrupo propio ``procedural``.
+
+    ``flatten_roads`` aplana el corredor de cada vía sobre el DEM del
+    background (ver ``mapforge.terrain.flatten``). Los dos campos
+    ``flatten_roads_*`` son propios de MapForge y gobiernan la integración con
+    el terreno: ``feather`` es el ancho de la transición en metros (``None`` =
+    el doble del ancho de la vía) y ``smooth`` la ventana de suavizado
+    longitudinal del eje, también en metros (``0`` = off).
+    """
 
     generate_background: bool = True
     generate_water: bool = False  # fuera de alcance
     water_blurriness: int = 20
     remove_center: bool = True
-    flatten_roads: bool = True  # feature 3.x no replicada; se conserva por espejo
+    flatten_roads: bool = True
     flatten_water: bool = False
+    # --- campos propios de MapForge ---
+    flatten_roads_feather: float | None = None
+    flatten_roads_smooth: float = 25.0
     procedural: ProceduralBackgroundSettings = field(
         default_factory=ProceduralBackgroundSettings
     )

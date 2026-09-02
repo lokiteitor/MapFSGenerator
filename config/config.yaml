@@ -78,9 +78,14 @@ settings:
     add_farmyards: true
     base_price: 12500                 # pricePerHa de farmlands.xml
     price_scale: 100
-    add_grass: true
-    base_grass: "meadow"
-    random_plants: false
+    add_grass: true                   # hierba base en densityMap_fruits.png
+    base_grass: "meadow"              # meadow=131 | smallDenseMix=33 (canal R)
+    random_plants: false              # islas de plantas aleatorias sobre la hierba
+    plants_island_minimum_size: 10    # px (solo si random_plants)
+    plants_island_maximum_size: 200
+    plants_island_vertex_count: 30
+    plants_island_rounding_radius: 15
+    plants_island_percent: 100        # nº de islas = map.size × porcentaje / 100
     fill_empty_farmlands: true        # píxeles 0 → 255
 
   i3d:

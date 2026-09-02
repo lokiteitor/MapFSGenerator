@@ -174,3 +174,12 @@ def get_base_layer(layers: list[Layer]) -> Layer | None:
         if layer.priority == 0:
             return layer
     return None
+
+
+def get_layer_by_usage(layers: list[Layer], usage: str) -> Layer | None:
+    """La PRIMERA capa con ese ``usage`` en orden de schema
+    (``Texture.get_layer_by_usage`` de 1.8)."""
+    for layer in layers:
+        if layer.usage == usage:
+            return layer
+    return None

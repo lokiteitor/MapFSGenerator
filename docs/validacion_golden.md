@@ -46,7 +46,7 @@ columna final y detalladas en la sección siguiente.
 | `map/data/infoLayer_farmlands.png` | **99.997 % bajo el mapeo biyectivo de IDs**; máscara 255 idéntica (IoU 1.0); 192+255 IDs en ambos | Maps4FS 3.1.2 enumeró farmyards/fields en otro orden ⇒ los IDs son una permutación (186/192 con correspondencia exacta); el diff píxel a píxel crudo da 7.2 % por el renumerado (`output/validacion_farmlands/reporte_farmlands.json`) |
 | `map/config/farmlands.xml` | 192/192 entradas, `pricePerHa` idéntico | `npcName`/`priceScale` difieren (GRANDPA/0.6 en el golden): 3.x los cambió; 1.8 escribe FORESTER/1 (FACT-source replicado) |
 | resto de `infoLayer_*.png` (14) y `densityMap_*` (5 de 6) | **100 %** | Creados en cero según `grle_schema` — idénticos al golden |
-| `map/data/densityMap_fruits.png` | 70.74 % | `add_grass` (meadow=131 en canal B) no replicado: decisión del plan, capas GRLE en cero |
+| `map/data/densityMap_fruits.png` | pendiente de re-medir | `add_grass` **ya replicado** (`mapforge/fs25/plants.py`): el valor de planta (meadow=131) va al canal **R** del PNG —no al B, como decía esta tabla cuando la capa se emitía en cero— sobre la máscara `usage=grass` + `usage=forest` erosionada 3×3. El 70.74 % anterior era con la capa en cero |
 | `map/splines.i3d` | 176/176 curvas, nombres/atributos idénticos; **XY de los 1664 CVs 100 % idénticos**; 614 CVs (36.9 %) difieren SOLO en Z (media 0.018 m, max 1.58 m) | Ambos muestrean ya un DEM aplanado, pero con reglas de altura distintas (§F8). Antes de implementar `flatten_roads` eran 626 CVs contra un DEM sin aplanar |
 | `map/map.i3d` — nodos del escritor | **100 %**: `heightScale=255`, `lodTextureSize=8192`, DisplacementLayer `size=65536 cellSize=2 maxHeight=0.2`, sun bbox `∓4096,-128/148` idénticos al golden | — |
 | `map/map.i3d` — fields | **151/151 fields, centroides y nº de puntos exactos** (`output/validacion_fields/reporte_validacion_fields.json`) | El preprocessor 3.x no causó desviación medible en este mapa (los polígonos de textures.json coinciden) |
@@ -106,7 +106,7 @@ el usuario los borró del golden).
   extensión propia apagada por defecto que no afecta a esta validación.
 - Todas las diferencias restantes son atribuibles a: (1) features 3.x
   documentadas como no replicadas (preprocessor de fields, road meshes, agua,
-  buildings/luces, add_grass) o replicadas con algoritmo propio (flatten_roads,
+  buildings/luces) o replicadas con algoritmo propio (flatten_roads,
   cuya regla de altura exacta de 3.x no es recuperable), (2) contenido añadido
   a mano por el usuario al golden, o (3) binarios que compila el GIANTS
   Editor/motor.

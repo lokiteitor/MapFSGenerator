@@ -47,6 +47,7 @@ from mapforge import __version__
 from mapforge.farmlands.farmlands import FarmlandsWriter
 from mapforge.fields.fields import FieldsWriter
 from mapforge.fs25.grle_layers import create_empty_grle_layers
+from mapforge.fs25.plants import PlantsWriter
 from mapforge.fs25.i3d_writer import I3dWriter, add_background_to_i3d, write_map_i3d
 from mapforge.fs25.template import deploy_template
 from mapforge.osm.parser import OsmData, parse_osm
@@ -70,6 +71,7 @@ STAGE_ORDER: tuple[str, ...] = (
     "dem",
     "grle_layers",
     "farmlands",
+    "plants",
     "fields",
     "splines",
     "i3d",
@@ -143,6 +145,7 @@ class Generator:
             ("dem", self._stage_dem),
             ("grle_layers", self._stage_grle_layers),
             ("farmlands", self._stage_farmlands),
+            ("plants", self._stage_plants),
             ("fields", self._stage_fields),
             ("splines", self._stage_splines),
             ("i3d", self._stage_i3d),
@@ -246,6 +249,10 @@ class Generator:
     def _stage_farmlands(self) -> dict[str, Any]:
         """infoLayer_farmlands.png + farmlands.xml (Fase 5)."""
         return FarmlandsWriter(self.project).run()
+
+    def _stage_plants(self) -> dict[str, Any]:
+        """Hierba base en densityMap_fruits.png (Fase 5)."""
+        return PlantsWriter(self.project).run()
 
     def _stage_fields(self) -> dict[str, Any]:
         """Fields jugables en el map.i3d (Fase 4)."""

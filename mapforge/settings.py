@@ -166,6 +166,11 @@ class GRLESettings(_SettingsBase):
     add_grass: bool = True
     base_grass: str = "meadow"
     random_plants: bool = False
+    plants_island_minimum_size: int = 10
+    plants_island_maximum_size: int = 200
+    plants_island_vertex_count: int = 30
+    plants_island_rounding_radius: int = 15
+    plants_island_percent: int = 100
     fill_empty_farmlands: bool = True
 
 

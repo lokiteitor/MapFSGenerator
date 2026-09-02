@@ -12,6 +12,7 @@ from mapforge.textures.rasterizer import (
 from mapforge.textures.schema import (
     Layer,
     get_base_layer,
+    get_layer_by_usage,
     layers_by_priority,
     load_texture_schema,
 )
@@ -23,6 +24,7 @@ __all__ = [
     "draw_polygon",
     "geometry_to_polygon",
     "get_base_layer",
+    "get_layer_by_usage",
     "layers_by_priority",
     "load_texture_schema",
     "np_to_polygon_points",

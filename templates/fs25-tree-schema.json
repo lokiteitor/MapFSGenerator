@@ -1,0 +1,77 @@
+[
+  {
+    "name": "lodgepolePine_stage01",
+    "reference_id": 1050,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "lodgepolePine_stage02",
+    "reference_id": 1051,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "lodgepolePine_stage02Var2",
+    "reference_id": 1052,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "lodgepolePine_stage03",
+    "reference_id": 1053,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "lodgepolePine_stage03Var2",
+    "reference_id": 1054,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusSylvestris_stage01",
+    "reference_id": 1064,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusSylvestris_stage02",
+    "reference_id": 1065,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusSylvestris_stage03",
+    "reference_id": 1066,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusSylvestris_stage04",
+    "reference_id": 1067,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusSylvestris_stage05",
+    "reference_id": 1068,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusTabuliformis_stage01",
+    "reference_id": 1069,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusTabuliformis_stage02",
+    "reference_id": 1070,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusTabuliformis_stage03",
+    "reference_id": 1071,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusTabuliformis_stage04",
+    "reference_id": 1072,
+    "leaf_type": "needleleaved"
+  },
+  {
+    "name": "pinusTabuliformis_stage05",
+    "reference_id": 1073,
+    "leaf_type": "needleleaved"
+  }
+]

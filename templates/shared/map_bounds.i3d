@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<i3D xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="map_bounds.i3d" version="1.6" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.6" />
+  </Asset>
+
+  <Files>
+  </Files>
+
+
+  <Materials>
+    <Material name="lambert1" materialId="7" diffuseColor="0.501961 0.501961 0.501961 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="map_bounds.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <TransformGroup name="mapbounds" translation="0 1024 0" nodeId="101089">
+      <Shape name="mapbound_W" translation="-2048 0 0" rotation="0 -0 -90" scale="1024 1 2048" shapeId="1" static="true" collisionFilterGroup="0xfffbffff" collisionFilterMask="0xfffbffff" nodeId="101090" castsShadows="false" receiveShadows="false" nonRenderable="true" renderedInViewports="false" materialIds="7"/>
+      <Shape name="mapbound_E" translation="2048 0 0" rotation="-180 -0 -90" scale="1024 1 2048" shapeId="1" static="true" collisionFilterGroup="0xfffbffff" collisionFilterMask="0xfffbffff" nodeId="101091" castsShadows="false" receiveShadows="false" nonRenderable="true" renderedInViewports="false" materialIds="7"/>
+      <Shape name="mapbound_N" translation="0 0 -2048" rotation="90 -0 -90" scale="1024 1 2048" shapeId="1" static="true" collisionFilterGroup="0xfffbffff" collisionFilterMask="0xfffbffff" nodeId="101092" castsShadows="false" receiveShadows="false" nonRenderable="true" renderedInViewports="false" materialIds="7"/>
+      <Shape name="mapbound_S" translation="0 0 2048" rotation="-90 -0 -90" scale="1024 1 2048" shapeId="1" static="true" collisionFilterGroup="0xfffbffff" collisionFilterMask="0xfffbffff" nodeId="101093" castsShadows="false" receiveShadows="false" nonRenderable="true" renderedInViewports="false" materialIds="7"/>
+    </TransformGroup>
+  </Scene>
+
+</i3D>

@@ -1,0 +1,65 @@
+[
+  {
+    "file": "assets/electricity/electricPolesSet.i3d",
+    "template_file": "templates/shared/electricity/electricPolesSet.i3d",
+    "name": "electricPolesSet",
+    "type": "pole",
+    "rotation_offset_degrees": 90,
+    "connectors": [
+      {
+        "side": 0.8,
+        "height": 10.2
+      },
+      {
+        "side": -0.8,
+        "height": 10.2
+      }
+    ],
+    "snap_to_road": 2,
+    "categories": ["default"]
+  },
+  {
+    "file": "$data/maps/mapAS/textures/props/highVoltageLinePole.i3d",
+    "name": "highVoltageLinePole",
+    "type": "tower",
+    "rotation_offset_degrees": -90,
+    "visual_rotation_offset_degrees": 0,
+    "connectors": [
+      {
+        "side": 5.5,
+        "height": 52.0
+      },
+      {
+        "side": -5.5,
+        "height": 52.0
+      },
+      {
+        "side": 3.9,
+        "height": 56.0
+      },
+      {
+        "side": -3.9,
+        "height": 56.0
+      }
+    ],
+    "categories": ["tower"]
+  },
+  {
+    "file": "$data/placeables/mapEU/brandless/lightsResidential/streetLight01/streetLight01.i3d",
+    "name": "streetLight01",
+    "type": "light",
+    "rotation_offset_degrees": -90,
+    "align_to_road": 96,
+    "snap_to_road": 2,
+    "categories": ["road_light"]
+  },
+  {
+    "file": "$data/placeables/brandless/lightsResidential/lightPole01/lightPole01.i3d",
+    "name": "lightPole01",
+    "type": "light",
+    "rotation_offset_degrees": -90,
+    "align_to_road": 96,
+    "snap_to_road": 2,
+    "categories": ["residential_light"]
+  }
+]

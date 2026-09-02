@@ -287,11 +287,30 @@ class TextureEngine:
 
     def _save_info_layer_data(self, info_layer_data: dict[str, list]) -> None:
         """Guarda ``info_layers/textures.json`` (mismo formato que Maps4FS:
-        json indent=4, ensure_ascii=False; si ya existe se fusiona)."""
+        json indent=4, ensure_ascii=False).
+
+        Si el fichero ya existe (regeneración sobre el MISMO output_dir) se
+        fusiona conservando las claves que esta pasada no produce, pero los
+        datos de esta pasada SIEMPRE ganan. Maps4FS 1.8 hace
+        ``info_layer_data.update(fichero)`` (el fichero viejo gana), lo que
+        con un output_dir reutilizado deja fields/farmyards/roads de la
+        generación anterior y descuadra i3d, farmlands y splines respecto a
+        las texturas recién dibujadas; allí no se nota porque cada generación
+        escribe en un directorio nuevo.
+        """
         if self.info_layer_path.is_file():
-            self.logger.debug("%s ya existe, se fusiona", self.info_layer_path)
             with open(self.info_layer_path, "r", encoding="utf-8") as f:
-                info_layer_data.update(json.load(f))
+                previous = json.load(f)
+            stale = sorted(set(previous) & set(info_layer_data))
+            if stale:
+                self.logger.warning(
+                    "%s ya existía: se sobrescriben las claves %s con los datos "
+                    "de esta pasada",
+                    self.info_layer_path,
+                    ", ".join(stale),
+                )
+            previous.update(info_layer_data)
+            info_layer_data = previous
 
         with open(self.info_layer_path, "w", encoding="utf-8") as f:
             json.dump(info_layer_data, f, ensure_ascii=False, indent=4)

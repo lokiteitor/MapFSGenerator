@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="electricPolesSetLight.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.11"/>
+  </Asset>
+
+  <Files>
+    <File fileId="2" filename="$data/maps/mapEU/textures/props/electricPolesSet_diffuse.png"/>
+    <File fileId="3" filename="$data/maps/mapEU/textures/props/electricPolesSet_normal.png"/>
+    <File fileId="4" filename="$data/maps/mapEU/textures/props/electricPolesSet_specular.png"/>
+    <File fileId="8" filename="$data/shaders/glowShader.xml"/>
+    <File fileId="5" filename="$data/shaders/placeableShader.xml"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="electricPolesSet_mat" materialId="6" customShaderId="5">
+      <Texture fileId="2"/>
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+    </Material>
+    <Material name="electricPolesSet_mat1" materialId="9" customShaderId="8" customShaderVariation="additive_colorScale">
+      <Texture fileId="2"/>
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+      <CustomParameter name="lightControl" value="5"/>
+      <CustomParameter name="colorScale" value="1 0.75 0.5"/>
+    </Material>
+    <Material name="lambert1" materialId="5" diffuseColor="0.501961 0.501961 0.501961 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="electricPolesSetLight.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <Shape name="electricPolesSet" lockedgroup="true" shapeId="1" static="true" collisionFilterGroup="0x3e" collisionFilterMask="0xfffffbff" density="0.0001" clipDistance="250" nodeId="18" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5">
+      <Shape name="vis" translation="0 0 0.005664" shapeId="2" nodeId="19" castsShadows="true" receiveShadows="true" materialIds="6">
+        <Shape name="vis_light" translation="0 0 0.13346" shapeId="3" clipDistance="120" nodeId="20" castsShadows="true" receiveShadows="true" materialIds="6">
+          <TransformGroup name="illum" translation="0 0 -0.139124" nodeId="21" weatherRequiredMask="0x40">
+            <Light name="spotLight" translation="0.209849 9.73199 0.929873" rotation="-100.85 0 0" clipDistance="120" nodeId="22" type="spot" color="0.5722 0.5722 0.4367" emitDiffuse="true" emitSpecular="true" range="20" coneAngle="130" dropOff="4" weatherRequiredMask="0x40"/>
+            <Shape name="selfIllum" translation="0.210894 9.76878 0.954744" shapeId="4" nodeId="23" castsShadows="true" receiveShadows="true" materialIds="9"/>
+          </TransformGroup>
+        </Shape>
+      </Shape>
+    </Shape>
+  </Scene>
+
+</i3D>

@@ -539,6 +539,51 @@ def test_all_weights_created_in_zero(tmp_path: Path) -> None:
     assert not read_weight(project, "conTag01_weight.png").any()
     assert not read_weight(project, "conTag02_weight.png").any()
 
+def test_textures_json_stale_data_is_overwritten(tmp_path: Path) -> None:
+    """Regenerar sobre el mismo output_dir NO debe conservar los polígonos de
+    la pasada anterior.
+
+    Maps4FS 1.8 hace ``info_layer_data.update(fichero_existente)`` (gana el
+    fichero viejo); allí no se nota porque cada generación escribe en un
+    directorio nuevo. Reutilizando output_dir eso dejaba fields/farmyards/
+    roads rancios y descuadraba i3d, farmlands y splines respecto a las
+    texturas recién dibujadas.
+    """
+    schema = [
+        {
+            "name": "campo",
+            "count": 1,
+            "priority": 4,
+            "tags": {"landuse": "farmland"},
+            "info_layer": "fields",
+        },
+        {"name": "base", "count": 1, "priority": 0},
+    ]
+    project = make_project(tmp_path, schema)
+    proj = MapProjection(LAT, LON, SIZE)
+    write_osm(
+        project.paths.osm,
+        [{"points": square(20, 20, 80, 80), "tags": {"landuse": "farmland"}, "closed": True}],
+        proj,
+    )
+
+    # textures.json de una "pasada anterior" con datos que ya no existen.
+    project.paths.textures_json.parent.mkdir(parents=True, exist_ok=True)
+    project.paths.textures_json.write_text(
+        json.dumps({"fields": [[[0, 0], [1, 0], [1, 1], [0, 0]]], "otra_clave": [1]}),
+        encoding="utf-8",
+    )
+
+    TextureEngine(project).run()
+
+    data = json.loads(project.paths.textures_json.read_text(encoding="utf-8"))
+    fields = data["fields"]
+    assert len(fields) == 1
+    xs = [pt[0] for pt in fields[0]]
+    assert min(xs) == 20 and max(xs) == 80  # el polígono de ESTA pasada
+    # Las claves que esta pasada no produce sí se conservan.
+    assert data["otra_clave"] == [1]
+
 
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-v"]))

@@ -1,0 +1,23 @@
+[
+  {
+    "category": "trees",
+    "name": "bg_birch_01",
+    "path": "shared/background/trees/bg_birch_01.dds",
+    "width": 20.0,
+    "height": 30.0
+  },
+  {
+    "category": "trees",
+    "name": "bg_linden_01",
+    "path": "shared/background/trees/bg_linden_01.dds",
+    "width": 28.0,
+    "height": 30.0
+  },
+  {
+    "category": "trees",
+    "name": "bg_spruce_01",
+    "path": "shared/background/trees/bg_spruce_01.dds",
+    "width": 18.0,
+    "height": 36.0
+  }
+]

@@ -1,0 +1,1269 @@
+[
+  {
+    "file": "$data/maps/mapEU/textures/buildings/animalTraderGarages/animalTraderGarages.i3d",
+    "name": "animalTraderGarages",
+    "width": 25.0,
+    "depth": 14.0,
+    "type": "garage",
+    "categories": [
+      "commercial",
+      "farmyard"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/apartmentBuildings/apartmentBuilding01.i3d",
+    "name": "apartmentBuilding01",
+    "width": 32.0,
+    "depth": 12.0,
+    "type": "apartment",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/apartmentBuildings/apartmentBuilding02.i3d",
+    "name": "apartmentBuilding02",
+    "width": 30.0,
+    "depth": 12.0,
+    "type": "apartment",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/apartmentBuildings/apartmentBuilding02Variation.i3d",
+    "name": "apartmentBuilding02Variation",
+    "width": 30.0,
+    "depth": 12.0,
+    "type": "apartment",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/apartmentBuildings/apartmentBuilding03.i3d",
+    "name": "apartmentBuilding03",
+    "width": 22.0,
+    "depth": 20.0,
+    "type": "apartment",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/bioMassPowerPlantBuildings/bioMassPowerPlantBuildings.i3d",
+    "name": "bioMassPowerPlantBuildings",
+    "width": 11.0,
+    "depth": 7.0,
+    "type": "plant",
+    "categories": [
+      "industrial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/bunkerShed/bunkerShed.i3d",
+    "name": "bunkerShed",
+    "width": 8.0,
+    "depth": 10.0,
+    "type": "building",
+    "categories": [
+      "farmyard"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/carDealerStorage/carDealerStorage.i3d",
+    "name": "carDealerStorage",
+    "width": 18.0,
+    "depth": 42.0,
+    "type": "building",
+    "categories": [
+      "commercial",
+      "retail"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/crossroadsShrine/crossroadsShrine.i3d",
+    "name": "crossroadsShrine",
+    "width": 2.0,
+    "depth": 2.0,
+    "type": "building",
+    "categories": [
+      "religious"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/electricityHouse/electricityHouse.i3d",
+    "name": "electricityHouse",
+    "width": 9.0,
+    "depth": 6.0,
+    "type": "house",
+    "categories": [
+      "industrial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/firewatch/firewatch.i3d",
+    "name": "firewatch",
+    "width": 25.0,
+    "depth": 20.0,
+    "type": "building",
+    "categories": [
+      "recreation"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/gasStation/gasStation.i3d",
+    "name": "gasStation",
+    "width": 40.0,
+    "depth": 30.0,
+    "type": "station",
+    "categories": [
+      "retail",
+      "commercial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/grainFlourMillBuildings/grainFlourMillBuildings.i3d",
+    "name": "grainFlourMillBuildings",
+    "width": 5.0,
+    "depth": 10.0,
+    "type": "mill",
+    "categories": [
+      "industrial",
+      "farmyard"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/grainSilo/grainSilo.i3d",
+    "name": "grainSilo",
+    "width": 30.0,
+    "depth": 30.0,
+    "type": "silo",
+    "categories": [
+      "farmyard",
+      "industrial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/milkbar/milkbar.i3d",
+    "name": "milkbar",
+    "width": 12.0,
+    "depth": 12.0,
+    "type": "building",
+    "categories": [
+      "retail",
+      "commercial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/observationTower/observationTower.i3d",
+    "name": "observationTower",
+    "width": 8.0,
+    "depth": 8.0,
+    "type": "building",
+    "categories": [
+      "recreation"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/oldWindmill/oldWindmill.i3d",
+    "name": "oldWindmill",
+    "width": 8.0,
+    "depth": 8.0,
+    "type": "mill",
+    "categories": [
+      "industrial",
+      "recreation"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/pharmacy/pharmacy.i3d",
+    "name": "pharmacy",
+    "width": 16.0,
+    "depth": 16.0,
+    "type": "building",
+    "categories": [
+      "retail",
+      "commercial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/receptionHouse/receptionHouse.i3d",
+    "name": "receptionHouse",
+    "width": 8.0,
+    "depth": 8.0,
+    "type": "house",
+    "categories": [
+      "commercial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingMotif/residentialBuildingMotif01.i3d",
+    "name": "residentialBuildingMotif01",
+    "width": 18.0,
+    "depth": 9.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingMotif/residentialBuildingMotif02.i3d",
+    "name": "residentialBuildingMotif02",
+    "width": 18.0,
+    "depth": 9.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingMotif/residentialBuildingMotif03.i3d",
+    "name": "residentialBuildingMotif03",
+    "width": 20.0,
+    "depth": 12.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding01.i3d",
+    "name": "residentialBuilding01",
+    "width": 12.0,
+    "depth": 12.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding02.i3d",
+    "name": "residentialBuilding02",
+    "width": 16.0,
+    "depth": 12.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding03.i3d",
+    "name": "residentialBuilding03",
+    "width": 14.0,
+    "depth": 10.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding04.i3d",
+    "name": "residentialBuilding04",
+    "width": 18.0,
+    "depth": 14.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding05.i3d",
+    "name": "residentialBuilding05",
+    "width": 18.0,
+    "depth": 14.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding06.i3d",
+    "name": "residentialBuilding06",
+    "width": 12.0,
+    "depth": 10.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding07.i3d",
+    "name": "residentialBuilding07",
+    "width": 10.0,
+    "depth": 10.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding08.i3d",
+    "name": "residentialBuilding08",
+    "width": 18.0,
+    "depth": 14.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding09.i3d",
+    "name": "residentialBuilding09",
+    "width": 12.0,
+    "depth": 14.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/residentialBuildingsSet/residentialBuilding10.i3d",
+    "name": "residentialBuilding10",
+    "width": 14.0,
+    "depth": 12.0,
+    "type": "residential",
+    "categories": [
+      "residential"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/sanctuary/sanctuary.i3d",
+    "name": "sanctuary",
+    "width": 25.0,
+    "depth": 30.0,
+    "type": "building",
+    "categories": [
+      "religious"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/smallGroceryStore/smallGroceryStore.i3d",
+    "name": "smallGroceryStore",
+    "width": 20.0,
+    "depth": 12.0,
+    "type": "store",
+    "categories": [
+      "retail",
+      "commercial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/smallKiosk/smallKiosk.i3d",
+    "name": "smallKiosk",
+    "width": 6.0,
+    "depth": 6.0,
+    "type": "building",
+    "categories": [
+      "retail",
+      "commercial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/smallWoodDeposit/smallWoodDeposit.i3d",
+    "name": "smallWoodDeposit",
+    "width": 6.0,
+    "depth": 6.0,
+    "type": "building",
+    "categories": [
+      "farmyard",
+      "industrial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/transformerTower/transformerTower.i3d",
+    "name": "transformerTower",
+    "width": 7.0,
+    "depth": 7.0,
+    "type": "building",
+    "categories": [
+      "industrial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/vehicleShop/vehicleShop.i3d",
+    "name": "vehicleShop",
+    "width": 40.0,
+    "depth": 15.0,
+    "type": "shop",
+    "categories": [
+      "retail",
+      "commercial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/waterTower/waterTower.i3d",
+    "name": "waterTower",
+    "width": 10.0,
+    "depth": 10.0,
+    "type": "building",
+    "categories": [
+      "industrial"
+    ],
+    "regions": [
+      "EU"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/animalTrader/animalTrader.i3d",
+    "name": "animalTrader",
+    "width": 200,
+    "depth": 200,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "farmyard",
+      "industrial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/bank/bank.i3d",
+    "name": "bank",
+    "width": 16,
+    "depth": 22,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/boatShop/boatShop.i3d",
+    "name": "boatShop",
+    "width": 24,
+    "depth": 18,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "retail",
+      "recreation"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/carRepairService/carRepairService.i3d",
+    "name": "carRepairService",
+    "width": 20,
+    "depth": 16,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "industrial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/fireStation/firestationUS.i3d",
+    "name": "firestationUS",
+    "width": 18,
+    "depth": 18,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/fishHachery/fishHatchery.i3d",
+    "name": "fishHatchery",
+    "width": 100,
+    "depth": 220,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "industrial",
+      "farmyard"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/garages/garage01.i3d",
+    "name": "garage01",
+    "width": 6,
+    "depth": 12,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential",
+      "farmyard"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/garages/garage02.i3d",
+    "name": "garage02",
+    "width": 10,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential",
+      "farmyard"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/gardenSheds/gardenShed01.i3d",
+    "name": "gardenShed01",
+    "width": 6,
+    "depth": 6,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "farmyard",
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/gardenSheds/gardenShed02.i3d",
+    "name": "gardenShed02",
+    "width": 8,
+    "depth": 4,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "farmyard",
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/gardenSheds/gardenShed03.i3d",
+    "name": "gardenShed03",
+    "width": 6,
+    "depth": 6,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "farmyard",
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/gasStation/gasStation.i3d",
+    "name": "gasStation",
+    "width": 45,
+    "depth": 40,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "retail"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/gasStation02/gasStation02.i3d",
+    "name": "gasStation02",
+    "width": 50,
+    "depth": 20,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "retail"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/generalStore/generalStore.i3d",
+    "name": "generalStore",
+    "width": 80,
+    "depth": 30,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "retail"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/grainBargeTerminal01/grainBargeTerminal01.i3d",
+    "name": "grainBargeTerminal01",
+    "width": 160,
+    "depth": 120,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "industrial",
+      "farmyard"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/grainBargeTerminal02/grainBargeTerminal02.i3d",
+    "name": "grainBargeTerminal02",
+    "width": 70,
+    "depth": 70,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "industrial",
+      "farmyard"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/grainElevator/grainElevator.i3d",
+    "name": "grainElevator",
+    "width": 120,
+    "depth": 100,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "industrial",
+      "farmyard"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/grainRiverSilo/grainRiverSilo.i3d",
+    "name": "grainRiverSilo",
+    "width": 80,
+    "depth": 160,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "farmyard",
+      "industrial",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/groceryStore/groceryStore.i3d",
+    "name": "groceryStore",
+    "width": 16,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "retail",
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/highSchool/highschool.i3d",
+    "name": "highschool",
+    "width": 60,
+    "depth": 24,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/playgroundMaker/playgroundMakerShip.i3d",
+    "name": "playgroundMakerShip",
+    "width": 100,
+    "depth": 70,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "recreation",
+      "industrial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/postOffice/postOffice.i3d",
+    "name": "postOffice",
+    "width": 32,
+    "depth": 28,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding01.i3d",
+    "name": "residentialBuilding01",
+    "width": 14,
+    "depth": 16,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding02.i3d",
+    "name": "residentialBuilding02",
+    "width": 14,
+    "depth": 24,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding03.i3d",
+    "name": "residentialBuilding03",
+    "width": 20,
+    "depth": 20,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding04.i3d",
+    "name": "residentialBuilding04",
+    "width": 18,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding05.i3d",
+    "name": "residentialBuilding05",
+    "width": 10,
+    "depth": 16,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding06.i3d",
+    "name": "residentialBuilding06",
+    "width": 16,
+    "depth": 16,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding07.i3d",
+    "name": "residentialBuilding07",
+    "width": 22,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding08.i3d",
+    "name": "residentialBuilding08",
+    "width": 16,
+    "depth": 20,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding09.i3d",
+    "name": "residentialBuilding09",
+    "width": 16,
+    "depth": 22,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding10.i3d",
+    "name": "residentialBuilding10",
+    "width": 24,
+    "depth": 12,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding11.i3d",
+    "name": "residentialBuilding11",
+    "width": 14,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding12.i3d",
+    "name": "residentialBuilding12",
+    "width": 28,
+    "depth": 34,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding13.i3d",
+    "name": "residentialBuilding13",
+    "width": 22,
+    "depth": 16,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/residentialBuildings/residentialBuilding14.i3d",
+    "name": "residentialBuilding14",
+    "width": 26,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/riverHomes/riverHome01.i3d",
+    "name": "riverHome01",
+    "width": 12,
+    "depth": 20,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential",
+      "recreation"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/riverHomes/riverHome02.i3d",
+    "name": "riverHome02",
+    "width": 18,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential",
+      "recreation"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/riverHomes/riverHome03.i3d",
+    "name": "riverHome03",
+    "width": 50,
+    "depth": 26,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential",
+      "recreation"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/riverHouse/riverHouse.i3d",
+    "name": "riverHouse",
+    "width": 6,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "residential",
+      "recreation"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/riverRestaurant/riverRestaurant.i3d",
+    "name": "riverRestaurant",
+    "width": 22,
+    "depth": 50,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "recreation",
+      "retail"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/ropeMakerShed/ropeMakerShed.i3d",
+    "name": "ropeMakerShed",
+    "width": 20,
+    "depth": 12,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "farmyard",
+      "industrial",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/sawmillOldLogDumpRamp/sawmillOldLogDumpRamp.i3d",
+    "name": "sawmillOldLogDumpRamp",
+    "width": 50,
+    "depth": 22,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "industrial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/townBuilding01/townBuilding01.i3d",
+    "name": "townBuilding01",
+    "width": 14,
+    "depth": 32,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "residential",
+      "retail"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/townBuilding02/townBuilding02.i3d",
+    "name": "townBuilding02",
+    "width": 12,
+    "depth": 20,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "residential",
+      "retail"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/townBuilding03/townBuilding03.i3d",
+    "name": "townBuilding03",
+    "width": 14,
+    "depth": 40,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "residential",
+      "retail"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/trainStation/trainStation.i3d",
+    "name": "trainStation",
+    "width": 80,
+    "depth": 24,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "industrial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/trainWarehouse/trainWarehouse.i3d",
+    "name": "trainWarehouse",
+    "width": 26,
+    "depth": 80,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "industrial",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/vehicleTrader/vehicleTrader.i3d",
+    "name": "vehicleTrader",
+    "width": 200,
+    "depth": 50,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "commercial",
+      "retail",
+      "industrial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/warehouse/warehouse.i3d",
+    "name": "warehouse",
+    "width": 45,
+    "depth": 24,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "industrial",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/warehouse02/warehouse02.i3d",
+    "name": "warehouse02",
+    "width": 30,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "industrial",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/watchTower/watchtower.i3d",
+    "name": "watchtower",
+    "width": 12,
+    "depth": 12,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "recreation",
+      "residential",
+      "farmyard"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/waterTowers/waterTower01.i3d",
+    "name": "waterTower01",
+    "width": 10,
+    "depth": 10,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "industrial",
+      "residential",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/waterTowers/waterTower02.i3d",
+    "name": "waterTower02",
+    "width": 12,
+    "depth": 12,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "industrial",
+      "residential",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/waterTowers/waterTower03.i3d",
+    "name": "waterTower03",
+    "width": 14,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "industrial",
+      "residential",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/waterTowers/waterTower04.i3d",
+    "name": "waterTower04",
+    "width": 14,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "industrial",
+      "residential",
+      "commercial"
+    ]
+  },
+  {
+    "file": "$data/maps/mapUS/textures/buildings/waterTowers/waterTower05.i3d",
+    "name": "waterTower05",
+    "width": 14,
+    "depth": 14,
+    "regions": [
+      "US"
+    ],
+    "categories": [
+      "industrial",
+      "residential",
+      "commercial"
+    ]
+  }
+]

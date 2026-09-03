@@ -193,6 +193,142 @@ def test_textura_paleta(tmp_path):
     assert tex[..., 2].max() > 100
 
 
+def test_textura_por_relieve_bandas(tmp_path):
+    """Verde abajo, roca en la cota media y nieve arriba."""
+    project = make_project(tmp_path, size=32)
+    proc = project.settings.background.procedural
+    proc.texture_size = 128
+    proc.band_noise = 0.0  # sin jitter: bandas exactas
+    proc.band_blend = 0.0  # sin mezcla: escalón duro
+    proc.slope_rock_deg = 1e6  # anula la contribución de la pendiente
+    proc.snow_slope_limit_deg = 1e6
+    proc.palette_low = (0, 200, 0)
+    proc.palette_high = (0, 200, 0)
+    proc.palette_rock = (128, 128, 128)
+    proc.palette_snow = (255, 255, 255)
+    proc.rock_height = 130.0
+    proc.snow_height = 200.0
+
+    # Rampa vertical 0 → 255 m (con height_scale=255, zf = 1/257).
+    side = 128
+    column = np.linspace(0, 65535, side).astype(np.uint16)
+    dem = np.repeat(column[:, None], side, axis=1)  # varía con la FILA
+    tex = generate_background_texture(project, dem).astype(int)
+
+    metres = column * background_z_scaling_factor(project)
+    # Fila claramente verde, claramente roca y claramente nieve.
+    green = tex[np.argmin(np.abs(metres - 50))].mean(axis=0)
+    rock = tex[np.argmin(np.abs(metres - 165))].mean(axis=0)
+    snow = tex[np.argmin(np.abs(metres - 240))].mean(axis=0)
+
+    assert green[1] > green[0] + 50 and green[1] > green[2] + 50  # verde domina
+    assert abs(rock[0] - rock[1]) < 25 and abs(rock[1] - rock[2]) < 25  # gris
+    assert rock.mean() < 190
+    assert snow.mean() > 200  # nieve: mucho más claro que la roca
+    assert snow.mean() > rock.mean() + 40
+
+
+def test_textura_sin_dem_es_el_modo_plano(tmp_path):
+    """Sin DEM se cae al ruido plano: nada de roca ni nieve."""
+    project = make_project(tmp_path)
+    proc = project.settings.background.procedural
+    proc.texture_size = 64
+    proc.palette_low = (200, 0, 0)
+    proc.palette_high = (0, 0, 200)
+    proc.palette_rock = (0, 255, 0)
+    proc.palette_snow = (0, 255, 0)
+    tex = generate_background_texture(project, None)
+    assert tex[..., 1].max() <= 10  # el verde de roca/nieve no aparece
+
+
+def test_textura_height_texture_off(tmp_path):
+    """``height_texture: false`` ignora el DEM (misma salida que sin DEM)."""
+    project = make_project(tmp_path)
+    proc = project.settings.background.procedural
+    proc.texture_size = 64
+    proc.height_texture = False
+    dem = synthetic_dem(64)
+    np.testing.assert_array_equal(
+        generate_background_texture(project, dem),
+        generate_background_texture(project, None),
+    )
+
+
+def test_textura_flip_v(tmp_path):
+    project = make_project(tmp_path)
+    proc = project.settings.background.procedural
+    proc.texture_size = 64
+    normal = generate_background_texture(project)
+    proc.texture_flip_v = True
+    np.testing.assert_array_equal(generate_background_texture(project), normal[::-1])
+
+
+def test_textura_alineada_con_el_mesh(tmp_path):
+    """La UV de cada vértice cae sobre el píxel de textura de SU altura.
+
+    Test de extremo a extremo de la convención de alineación documentada en
+    ``mapforge.background.texture``: se construye el mesh y la textura desde el
+    mismo DEM y se comprueba que el color muestreado en la UV de un vértice
+    corresponde a la banda que le toca por altura. Detectaría un volteo o una
+    transposición del raster.
+    """
+    side = 128
+    # map.size pequeño: remove_center recorta poco y quedan vértices en todas
+    # las zonas del DEM.
+    project = make_project(tmp_path, size=16)
+    proc = project.settings.background.procedural
+    proc.resize_factor = 1
+    proc.apply_decimation = False
+    proc.texture_size = 128
+    proc.band_noise = 0.0
+    proc.band_blend = 0.0
+    proc.slope_rock_deg = 1e6
+    proc.snow_slope_limit_deg = 1e6
+    proc.palette_low = (0, 0, 0)
+    proc.palette_high = (0, 0, 0)
+    proc.palette_rock = (255, 255, 255)
+    proc.palette_snow = (255, 255, 255)
+    proc.rock_height = 130.0
+    proc.snow_height = 1e6  # solo dos bandas: negro abajo, blanco arriba
+
+    # DEM asimétrico en LAS DOS direcciones, para que un volteo vertical, uno
+    # horizontal o una transposición rompan el test.
+    dem = np.full((side, side), 10000, dtype=np.uint16)
+    dem[: side // 2, :] = 60000  # mitad norte alta
+    dem[:, : side // 4] = 60000  # cuarto oeste alto
+
+    mesh = build_background_mesh(project, dem)
+
+    tex = generate_background_texture(project, dem)
+    # Blanco = roca (alto), negro = bajo. Mapa esperado directo desde el DEM.
+    zf = background_z_scaling_factor(project)
+    expected_high = (dem * zf) >= proc.rock_height
+
+    # UVs del exportador (misma fórmula que BackgroundExporter.run).
+    v = np.asarray(mesh.vertices)
+    lo = mesh.bounds[0][:2]
+    span = np.where(mesh.extents[:2] > 0, mesh.extents[:2], 1.0)
+    uv = np.clip((v[:, :2] - lo) / span, 0.0, 1.0)
+
+    # Convención OBJ/GL: v=1 → fila 0 del array de textura.
+    rows = np.clip(((1.0 - uv[:, 1]) * (proc.texture_size - 1)).round().astype(int),
+                   0, proc.texture_size - 1)
+    cols = np.clip((uv[:, 0] * (proc.texture_size - 1)).round().astype(int),
+                   0, proc.texture_size - 1)
+    sampled_white = tex[rows, cols].mean(axis=1) > 127
+
+    # Altura real del vértice: world_y = dem × zf = (dem.max() − mesh_z_inv)…
+    # el mesh guarda z = −(dem.max() − dem) × zf, luego dem×zf = z + max×zf.
+    vertex_height = v[:, 2] + float(dem.max()) * zf
+    expected = vertex_height >= proc.rock_height
+
+    # Se ignoran los vértices justo en la frontera (un píxel de textura de
+    # holgura por el redondeo del muestreo).
+    agreement = (sampled_white == expected).mean()
+    assert agreement > 0.97, f"alineación textura/mesh rota: {agreement:.3f}"
+    assert expected_high.any() and not expected_high.all()
+
+
 # ----------------------------------------------------------------- exportador
 
 
@@ -206,7 +342,7 @@ def test_exporter_genera_obj_textura_y_4_i3d(tmp_path):
 
     dem = synthetic_dem(64)
     mesh = build_background_mesh(project, dem)
-    result = BackgroundExporter(project).run(mesh, float(dem.max()))
+    result = BackgroundExporter(project).run(mesh, dem)
 
     out = project.paths.output_dir
     assert (out / "background" / "decimated_background.obj").is_file()

@@ -166,15 +166,17 @@ class BackgroundExporter:
         """Directorio de salida de los i3d y la textura (patrón del artefacto)."""
         return self.project.paths.output_dir / "assets" / "background"
 
-    def run(self, mesh: trimesh.Trimesh, dem_full_max: float) -> dict[str, Any]:
+    def run(self, mesh: trimesh.Trimesh, dem_full: np.ndarray) -> dict[str, Any]:
         """Exporta el background completo.
 
         Arguments:
             mesh: mesh construido por
                 :func:`mapforge.background.mesh.build_background_mesh`
                 (XY recentrado ±background_size/2, Z ≤ 0).
-            dem_full_max: valor máximo del DEM FULL de entrada (uint16); fija
-                ``translation Y = dem_full_max × z_scaling_factor``.
+            dem_full: DEM FULL de entrada (``background_size²`` uint16). Su
+                máximo fija ``translation Y = max × z_scaling_factor`` y el
+                raster completo alimenta la textura por relieve
+                (:mod:`mapforge.background.texture`).
 
         Returns:
             dict con rutas y estadísticas (obj, texture, translation_y,
@@ -184,7 +186,7 @@ class BackgroundExporter:
         project = self.project
         paths = project.paths
 
-        translation_y = float(dem_full_max) * background_z_scaling_factor(project)
+        translation_y = float(dem_full.max()) * background_z_scaling_factor(project)
 
         # 1. OBJ intermedio (mismo nombre que el golden).
         paths.background_dir.mkdir(parents=True, exist_ok=True)
@@ -196,7 +198,9 @@ class BackgroundExporter:
 
         # 2. Textura procedural.
         self.assets_dir.mkdir(parents=True, exist_ok=True)
-        texture_path = write_background_texture(project, self.assets_dir / TEXTURE_FILENAME)
+        texture_path = write_background_texture(
+            project, self.assets_dir / TEXTURE_FILENAME, dem_full
+        )
 
         # 3. Normales y UVs sobre el mesh completo (sin costuras entre partes).
         vertices = np.asarray(mesh.vertices, dtype=np.float64)

@@ -294,9 +294,7 @@ class Generator:
 
         dem_full = self._resolve_dem_full()
         mesh = build_background_mesh(project, dem_full)
-        export = BackgroundExporter(project).run(
-            mesh, dem_full_max=float(dem_full.max())
-        )
+        export = BackgroundExporter(project).run(mesh, dem_full)
 
         # Integración de las partes en map.i3d (Files + ReferenceNodes).
         tree = ET.parse(project.paths.map_i3d)

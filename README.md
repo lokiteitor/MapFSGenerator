@@ -143,7 +143,7 @@ orden que se observa en los logs de Maps4FS 3.x.
 | `mapforge/fields/` | polígonos → `TransformGroup field{n}` con polygonPoints/nameIndicator/teleportIndicator en `gameplay/fields` del map.i3d |
 | `mapforge/splines/` | roads → NurbsCurve (density interpolada, Z del DEM, original+reversed) en `map/splines.i3d` |
 | `mapforge/fs25/i3d_writer.py` | map.i3d (heightScale, DisplacementLayer, sun, refs de background), map.xml, modDesc.xml |
-| `mapforge/background/` | mesh del terreno de fondo (subsample, decimación quadric, remove_center) + textura procedural fBm + export OBJ/i3d en 4 partes |
+| `mapforge/background/` | mesh del terreno de fondo (subsample, decimación quadric, remove_center) + textura procedural por relieve (verde / roca / nieve según cota y pendiente) + export OBJ/i3d en 4 partes |
 | `tools/compare_golden.py` | harness de validación contra `FS25_Valle_Bonito/` |
 | `tools/analiza_flatten.py` | evidencia forense de `flatten_roads` + métricas de calidad del talud y de suavidad de las splines |
 

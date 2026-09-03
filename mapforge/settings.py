@@ -99,8 +99,17 @@ class ProceduralBackgroundSettings(_SettingsBase):
 
     - Mesh (algoritmo S6): subsample, decimación quadric (default 25/3 activada,
       ~167k vértices como el artefacto).
-    - Textura: ruido fBm multi-octava sembrado con la seed global, paleta
-      tierra→verde configurable (colores RGB 0-255).
+    - Textura: ver :mod:`mapforge.background.texture`. Con
+      ``height_texture`` (default) el color sigue el relieve del DEM en tres
+      bandas — la rampa tierra→verde (``palette_low``/``palette_high``) abajo,
+      ``palette_rock`` desde ``rock_height`` o en las pendientes fuertes, y
+      ``palette_snow`` desde ``snow_height``. Con ``height_texture: false`` se
+      cae al modo original: fBm plano sobre la rampa tierra→verde.
+
+    Las cotas ``rock_height``/``snow_height`` van en **metros de mundo** (la
+    misma escala que la Y del mesh: ``dem × z_scaling_factor``), no en valores
+    del uint16. Si una cota queda por encima del techo real del terreno, esa
+    banda simplemente no se dibuja y la fase avisa por log.
     """
 
     resize_factor: int = 8
@@ -111,11 +120,25 @@ class ProceduralBackgroundSettings(_SettingsBase):
     noise_octaves: int = 5
     palette_low: tuple[int, int, int] = (101, 84, 59)  # tierra
     palette_high: tuple[int, int, int] = (78, 105, 54)  # verde
+    # --- textura por relieve ---
+    height_texture: bool = True
+    palette_rock: tuple[int, int, int] = (122, 118, 110)  # gris roca
+    palette_snow: tuple[int, int, int] = (238, 242, 247)  # nieve
+    rock_height: float = 130.0
+    snow_height: float = 200.0
+    band_blend: float = 25.0
+    band_noise: float = 12.0
+    slope_rock_deg: float = 30.0
+    slope_rock_blend: float = 12.0
+    snow_slope_limit_deg: float = 45.0
+    texture_flip_v: bool = False
 
     def __post_init__(self) -> None:
         # YAML entrega listas; normalizamos a tuplas.
         self.palette_low = tuple(self.palette_low)  # type: ignore[assignment]
         self.palette_high = tuple(self.palette_high)  # type: ignore[assignment]
+        self.palette_rock = tuple(self.palette_rock)  # type: ignore[assignment]
+        self.palette_snow = tuple(self.palette_snow)  # type: ignore[assignment]
 
 
 @dataclass

@@ -11,8 +11,8 @@ project:
 map:
   size: 8192                          # lado del mapa en metros/píxeles (2048/4096/8192/16384)
   rotation: 0                         # grados; si != 0 el lienzo rotado es size × 1.5
-  latitude: 49.1000      # centro del mapa (lat)
-  longitude: 31.3000         # centro del mapa (lon)
+  latitude: 43.0600     # centro del mapa (lat)
+  longitude: -95.2800         # centro del mapa (lon)
   output_size: null                   # opcional: reescalar la salida a otro tamaño
 
 inputs:

@@ -11,8 +11,8 @@ project:
 map:
   size: 8192                          # lado del mapa en metros/píxeles (2048/4096/8192/16384)
   rotation: 0                         # grados; si != 0 el lienzo rotado es size × 1.5
-  latitude: 43.0600     # centro del mapa (lat)
-  longitude: -95.2800         # centro del mapa (lon)
+  latitude: 43.1457     # centro del mapa (lat) — debe coincidir con maps/custom.osm
+  longitude: -95.1451         # centro del mapa (lon) — debe coincidir con maps/custom.osm
   output_size: null                   # opcional: reescalar la salida a otro tamaño
 
 inputs:
@@ -41,7 +41,7 @@ settings:
     water_depth: 15
     blur_radius: 3                    # radio del blur gaussiano (impar; 0 = off)
     add_foundations: false            # fuera de alcance (espejo)
-    water_bank_steepness: 2
+    water_bank_steepness: 3
     # --- campos propios de MapForge: aplanado de farmyards (sin equivalente
     #     en Maps4FS). Aplana el interior de cada landuse=farmyard a la media
     #     del área; se aplica ANTES que flatten_roads.
@@ -77,8 +77,8 @@ settings:
       palette_rock: [122, 118, 110]   # RGB gris roca
       palette_snow: [238, 242, 247]   # RGB nieve
       # Cotas en METROS DE MUNDO (dem × z_scaling_factor, la misma Y del mesh).
-      rock_height: 130                # m: inicio de la banda de roca
-      snow_height: 200                # m: inicio de la banda de nieve
+      rock_height: 110                # m: inicio de la banda de roca
+      snow_height: 120                # m: inicio de la banda de nieve
       band_blend: 25                  # m de mezcla entre bandas contiguas
       band_noise: 12                  # m de jitter fBm en la cota (bordes irregulares)
       slope_rock_deg: 30              # grados: pendiente desde la que aflora roca

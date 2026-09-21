@@ -26,7 +26,7 @@ from mapforge.osm.projection import MapProjection  # noqa: E402
 from mapforge.project import MapParams, Project, ProjectPaths  # noqa: E402
 from mapforge.settings import GenerationSettings  # noqa: E402
 
-TEMPLATE_ZIP = REPO_ROOT / "maps4fs-1.8.242" / "data" / "fs25-map-template.zip"
+TEMPLATE_ZIP = REPO_ROOT / "templates" / "fs25-map-template.zip"
 TEXTURE_SCHEMA = REPO_ROOT / "config" / "texture_schema.json"
 GRLE_SCHEMA = REPO_ROOT / "config" / "grle_schema.json"
 

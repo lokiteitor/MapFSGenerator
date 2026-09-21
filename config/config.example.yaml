@@ -17,11 +17,11 @@ map:
 
 inputs:
   # DEM uint16 a 1 px/m del tamaño background (map.size + 4096).
-  heightmap: "../FS25_Valle_Bonito/valle_bonito.png"
+  heightmap: "../maps/dem_new_12k.png"
   # OSM XML local (sin descargas).
-  osm: "../FS25_Valle_Bonito/custom_osm.osm"
-  # Template FS25: zip de Maps4FS o directorio ya extraído.
-  template: "../maps4fs-1.8.242/data/fs25-map-template.zip"
+  osm: "../maps/custom.osm"
+  # Template FS25: zip o directorio ya extraído.
+  template: "../templates/fs25-map-template.zip"
   # Schemas (por defecto, los de config/).
   texture_schema: "texture_schema.json"
   grle_schema: "grle_schema.json"
@@ -70,8 +70,21 @@ settings:
       decimation_aggression: 3
       texture_size: 4096              # lado de la textura procedural
       noise_octaves: 5                # octavas del ruido fBm
-      palette_low: [101, 84, 59]      # RGB zonas bajas (tierra)
-      palette_high: [78, 105, 54]     # RGB zonas altas (verde)
+      # --- textura por relieve: el color sigue la orografía del DEM ---
+      height_texture: true            # false = ruido plano sin relación con la altura
+      palette_low: [101, 84, 59]      # RGB tierra (base de las cotas bajas)
+      palette_high: [78, 105, 54]     # RGB verde (base de las cotas bajas)
+      palette_rock: [122, 118, 110]   # RGB gris roca
+      palette_snow: [238, 242, 247]   # RGB nieve
+      # Cotas en METROS DE MUNDO (dem × z_scaling_factor, la misma Y del mesh).
+      rock_height: 130                # m: inicio de la banda de roca
+      snow_height: 200                # m: inicio de la banda de nieve
+      band_blend: 25                  # m de mezcla entre bandas contiguas
+      band_noise: 12                  # m de jitter fBm en la cota (bordes irregulares)
+      slope_rock_deg: 30              # grados: pendiente desde la que aflora roca
+      slope_rock_blend: 12            # grados de transición de los umbrales de pendiente
+      snow_slope_limit_deg: 45        # grados: por encima la nieve no se agarra
+      texture_flip_v: false           # true si el editor la renderiza al revés
 
   grle:
     farmland_margin: 5                # buffer mitre en px (1 px = 1 m) antes de ÷2

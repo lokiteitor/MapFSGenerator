@@ -320,3 +320,13 @@ def test_golden_osm_parses_completely() -> None:
     # Todos los ways con tags producen geometría.
     tagged_ways = [w for w in data.ways.values() if w.tags]
     assert len(data.features) == len(tagged_ways) + len(data.node_tags)
+
+
+def test_repo_osm_parses_completely() -> None:
+    """Valida que el OSM del repositorio se parsea sin errores."""
+    osm_path = REPO_ROOT / "maps" / "custom.osm"
+    assert osm_path.is_file()
+    data = parse_osm(osm_path)
+    assert len(data.nodes) > 0
+    assert len(data.ways) > 0
+    assert len(data.features) > 0

@@ -12,8 +12,9 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GOLDEN_DIR = REPO_ROOT / "FS25_Valle_Bonito"
-TEMPLATE_ZIP = REPO_ROOT / "maps4fs-1.8.242" / "data" / "fs25-map-template.zip"
+TEMPLATE_ZIP = REPO_ROOT / "templates" / "fs25-map-template.zip"
 VALLE_BONITO_YAML = REPO_ROOT / "config" / "valle_bonito.yaml"
+CONFIG_YAML = REPO_ROOT / "config" / "config.yaml"
 
 sys.path.insert(0, str(REPO_ROOT))
 
@@ -28,6 +29,21 @@ from mapforge.settings import (  # noqa: E402
 # ------------------------------------------------------------------ config
 
 
+def test_config_yaml_loads() -> None:
+    """Comprueba que la configuración por defecto del repo carga y valida."""
+    project = Project.from_yaml(CONFIG_YAML)
+    assert project.name == "Granja Bonita"
+    assert project.map.size == 8192
+    assert project.paths.template.is_file()
+    assert project.paths.heightmap.is_file()
+    assert project.paths.osm.is_file()
+    assert project.validate_inputs() == []
+
+
+@pytest.mark.skipif(
+    not (GOLDEN_DIR / "valle_bonito.png").is_file(),
+    reason="FS25_Valle_Bonito no disponible",
+)
 def test_valle_bonito_config_loads() -> None:
     project = Project.from_yaml(VALLE_BONITO_YAML)
 
@@ -74,9 +90,19 @@ def test_config_example_loads() -> None:
 
 
 def test_settings_load_from_maps4fs_generation_settings_json() -> None:
-    """El espejo debe tragar directamente el generation_settings.json del golden."""
-    with open(GOLDEN_DIR / "generation_settings.json", encoding="utf-8") as f:
-        raw = json.load(f)
+    """El parser debe admitir las claves estilo Maps4FS (XxxSettings)."""
+    golden_json = GOLDEN_DIR / "generation_settings.json"
+    if golden_json.is_file():
+        with open(golden_json, encoding="utf-8") as f:
+            raw = json.load(f)
+    else:
+        raw = {
+            "DEMSettings": {"plateau": 15, "water_depth": 15},
+            "BackgroundSettings": {"flatten_roads": True},
+            "GRLESettings": {"add_farmyards": True, "base_grass": "meadow"},
+            "I3DSettings": {"add_reversed_splines": True, "license_plate_prefix": "M4F"},
+            "TextureSettings": {"skip_drains": True},
+        }
     settings = GenerationSettings.from_dict(raw)
 
     assert settings.dem.plateau == 15
@@ -93,8 +119,8 @@ def test_settings_load_from_maps4fs_generation_settings_json() -> None:
 
 
 def test_rng_is_deterministic() -> None:
-    project_a = Project.from_yaml(VALLE_BONITO_YAML)
-    project_b = Project.from_yaml(VALLE_BONITO_YAML)
+    project_a = Project.from_yaml(CONFIG_YAML)
+    project_b = Project.from_yaml(CONFIG_YAML)
     assert project_a.rng.integers(0, 1 << 30) == project_b.rng.integers(0, 1 << 30)
     assert (
         project_a.fresh_rng(7).integers(0, 1 << 30)

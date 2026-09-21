@@ -481,6 +481,162 @@ def test_procedural_masks_and_blockmask(tmp_path: Path) -> None:
     assert np.array_equal(pg_merged, expected)
 
 
+def test_osm_procedural_masks_roads_and_forests(tmp_path: Path) -> None:
+    """Verifica que se generen las máscaras PG de bosques y caminos desde el OSM:
+    - PG_broadleaved: natural=wood con tag broadleaved
+    - PG_needleleaved: tag needleleaved
+    - PG_roads: highway=primary
+    - PG_sideroads: highway=secondary
+    - PG_dirtpaths: highway=track
+    """
+    schema = [
+        {"name": "base", "count": 1, "priority": 0},
+    ]
+    project = make_project(tmp_path, schema)
+    proj = MapProjection(LAT, LON, SIZE)
+    write_osm(
+        project.paths.osm,
+        [
+            # Bosque caducifolio (broadleaved)
+            {
+                "points": square(10, 10, 30, 30),
+                "tags": {"natural": "wood", "leaf_type": "broadleaved"},
+                "closed": True,
+            },
+            # Bosque de coníferas (needleleaved)
+            {
+                "points": square(40, 10, 60, 30),
+                "tags": {"natural": "wood", "leaf_type": "needleleaved"},
+                "closed": True,
+            },
+            # Bosque sin tag de hoja (no debe aparecer ni en broadleaved ni en needleleaved)
+            {
+                "points": square(70, 10, 90, 30),
+                "tags": {"natural": "wood"},
+                "closed": True,
+            },
+            # Carretera primaria
+            {
+                "points": [(10, 50), (100, 50)],
+                "tags": {"highway": "primary"},
+                "closed": False,
+            },
+            # Carretera secundaria
+            {
+                "points": [(10, 70), (100, 70)],
+                "tags": {"highway": "secondary"},
+                "closed": False,
+            },
+            # Camino de tierra / pista
+            {
+                "points": [(10, 90), (100, 90)],
+                "tags": {"highway": "track"},
+                "closed": False,
+            },
+            # Terciaria (no debe ir a sideroads ni a roads ni a dirtpaths)
+            {
+                "points": [(10, 110), (100, 110)],
+                "tags": {"highway": "tertiary"},
+                "closed": False,
+            },
+            # Zona residencial
+            {
+                "points": square(10, 115, 35, 125),
+                "tags": {"landuse": "residential"},
+                "closed": True,
+            },
+            # Zona industrial
+            {
+                "points": square(45, 115, 70, 125),
+                "tags": {"landuse": "industrial"},
+                "closed": True,
+            },
+            # Lago
+            {
+                "points": square(80, 115, 95, 125),
+                "tags": {"natural": "water", "water": "lake"},
+                "closed": True,
+            },
+            # Río
+            {
+                "points": [(110, 10), (110, 120)],
+                "tags": {"waterway": "river"},
+                "closed": False,
+            },
+        ],
+        proj,
+    )
+    TextureEngine(project).run()
+
+    masks_dir = project.paths.map_data_dir / "masks"
+    pg_broad = cv2.imread(str(masks_dir / "PG_broadleaved.png"), cv2.IMREAD_UNCHANGED)
+    pg_needle = cv2.imread(str(masks_dir / "PG_needleleaved.png"), cv2.IMREAD_UNCHANGED)
+    pg_roads = cv2.imread(str(masks_dir / "PG_roads.png"), cv2.IMREAD_UNCHANGED)
+    pg_sideroads = cv2.imread(str(masks_dir / "PG_sideroads.png"), cv2.IMREAD_UNCHANGED)
+    pg_dirtpaths = cv2.imread(str(masks_dir / "PG_dirtpaths.png"), cv2.IMREAD_UNCHANGED)
+    pg_residential = cv2.imread(str(masks_dir / "PG_residential.png"), cv2.IMREAD_UNCHANGED)
+    pg_industrial = cv2.imread(str(masks_dir / "PG_industrial.png"), cv2.IMREAD_UNCHANGED)
+    pg_water = cv2.imread(str(masks_dir / "PG_water.png"), cv2.IMREAD_UNCHANGED)
+    pg_lake = cv2.imread(str(masks_dir / "PG_lake.png"), cv2.IMREAD_UNCHANGED)
+
+    assert pg_broad is not None
+    assert pg_needle is not None
+    assert pg_roads is not None
+    assert pg_sideroads is not None
+    assert pg_dirtpaths is not None
+    assert pg_residential is not None
+    assert pg_industrial is not None
+    assert pg_water is not None
+    assert pg_lake is not None
+
+    # Broadleaved: activo en (20, 20), inactivo en (20, 50) y (20, 80)
+    assert pg_broad[20, 20] == 255
+    assert pg_broad[20, 50] == 0
+    assert pg_broad[20, 80] == 0
+
+    # Needleleaved: inactivo en (20, 20), activo en (20, 50), inactivo en (20, 80)
+    assert pg_needle[20, 20] == 0
+    assert pg_needle[20, 50] == 255
+    assert pg_needle[20, 80] == 0
+
+    # Carreteras:
+    # Primary en y=50
+    assert pg_roads[50, 50] == 255
+    assert pg_roads[70, 50] == 0
+    assert pg_roads[90, 50] == 0
+    assert pg_roads[110, 50] == 0
+
+    # Secondary en y=70
+    assert pg_sideroads[50, 50] == 0
+    assert pg_sideroads[70, 50] == 255
+    assert pg_sideroads[90, 50] == 0
+    assert pg_sideroads[110, 50] == 0
+
+    # Dirtpaths (track) en y=90
+    assert pg_dirtpaths[50, 50] == 0
+    assert pg_dirtpaths[70, 50] == 0
+    assert pg_dirtpaths[90, 50] == 255
+    assert pg_dirtpaths[110, 50] == 0
+
+    # Residencial en y=120, x=25
+    assert pg_residential[120, 25] == 255
+    assert pg_residential[20, 20] == 0
+    assert pg_residential[50, 50] == 0
+
+    # Industrial en y=120, x=55
+    assert pg_industrial[120, 55] == 255
+    assert pg_industrial[120, 25] == 0
+    assert pg_industrial[20, 20] == 0
+
+    # Lago en y=120, x=87: activo en PG_water y PG_lake
+    assert pg_water[120, 87] == 255
+    assert pg_lake[120, 87] == 255
+
+    # Río en y=60, x=110: activo en PG_water, inactivo en PG_lake
+    assert pg_water[60, 110] == 255
+    assert pg_lake[60, 110] == 0
+
+
 def test_skip_drains(tmp_path: Path) -> None:
     """skip_drains=true (default) salta las capas usage=drain."""
     schema = [

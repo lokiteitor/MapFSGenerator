@@ -43,7 +43,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Generator
 
 import numpy as np
-from shapely.geometry import LineString, Point, Polygon
+from shapely.geometry import LineString, MultiPolygon, Point, Polygon
 
 import cv2
 
@@ -51,6 +51,7 @@ from mapforge.osm.parser import OsmData, parse_osm
 from mapforge.osm.projection import MapProjection
 from mapforge.textures.rasterizer import (
     MIN_POLYGON_POINTS,
+    draw_polygon,
     geometry_to_polygon,
     np_to_polygon_points,
     polygon_to_np,
@@ -282,6 +283,15 @@ class TextureEngine:
             )
         if isinstance(geometry, Point):
             return Point(self.projection.latlon_to_pixel(geometry.y, geometry.x))
+        if isinstance(geometry, MultiPolygon):
+            polygons = []
+            for poly in geometry.geoms:
+                coords_pixel = [
+                    self.projection.latlon_to_pixel(lat, lon)
+                    for lon, lat in poly.exterior.coords
+                ]
+                polygons.append(Polygon(coords_pixel))
+            return MultiPolygon(polygons)
         self.logger.debug("geometría %s no soportada", geometry.geom_type)
         return None
 
@@ -465,3 +475,150 @@ class TextureEngine:
             elif len(texture_paths) == 1:
                 shutil.copyfile(texture_paths[0], save_path)
             self.logger.debug("máscara procedural %s escrita", save_path.name)
+
+        self._generate_osm_masks()
+
+    def _generate_osm_masks(self) -> None:
+        """Genera máscaras procedurales directas desde el OSM según especificaciones:
+        - PG_broadleaved.png: natural=wood con tag broadleaved (leaf_type=broadleaved).
+        - PG_needleleaved.png: elementos con tag needleleaved (leaf_type=needleleaved).
+        - PG_roads.png: ways OSM con highway=primary (radio buffer = 8).
+        - PG_sideroads.png: ways OSM con highway=secondary (radio buffer = 4).
+        - PG_dirtpaths.png: ways OSM con highway=track (radio buffer = 2).
+        - PG_residential.png: zonas residenciales con landuse=residential.
+        - PG_industrial.png: zonas industriales con landuse=industrial o building=industrial.
+        - PG_water.png: masas de agua (lagos y ríos; natural=water o waterway=river/stream/etc.).
+        - PG_lake.png: lagos y estanques (natural=water, water=lake).
+        """
+        if not self.project.paths.osm or not Path(self.project.paths.osm).is_file():
+            return
+
+        osm_mask_specs = [
+            (
+                "PG_broadleaved",
+                lambda tags: bool(
+                    (tags.get("natural") == "wood" or tags.get("landuse") == "forest")
+                    and (
+                        tags.get("leaf_type") == "broadleaved"
+                        or tags.get("broadleaved") in ("yes", "true", "1")
+                        or "broadleaved" in tags
+                        or any("broadleaved" in str(v).lower() for v in tags.values())
+                    )
+                ),
+                2,
+            ),
+            (
+                "PG_needleleaved",
+                lambda tags: bool(
+                    tags.get("leaf_type") == "needleleaved"
+                    or tags.get("needleleaved") in ("yes", "true", "1")
+                    or "needleleaved" in tags
+                    or any("needleleaved" in str(v).lower() for v in tags.values())
+                ),
+                2,
+            ),
+            (
+                "PG_roads",
+                lambda tags: tags.get("highway") in ("primary", "primary_link"),
+                8,
+            ),
+            (
+                "PG_sideroads",
+                lambda tags: tags.get("highway") in ("secondary", "secondary_link"),
+                4,
+            ),
+            (
+                "PG_dirtpaths",
+                lambda tags: tags.get("highway") == "track",
+                2,
+            ),
+            (
+                "PG_residential",
+                lambda tags: bool(
+                    tags.get("landuse") == "residential"
+                    or tags.get("residential") in ("yes", "true", "1")
+                    or tags.get("zone") == "residential"
+                ),
+                8,
+            ),
+            (
+                "PG_industrial",
+                lambda tags: bool(
+                    tags.get("landuse") == "industrial"
+                    or tags.get("building") == "industrial"
+                    or tags.get("industrial") in ("yes", "true", "1")
+                    or tags.get("zone") == "industrial"
+                ),
+                8,
+            ),
+            (
+                "PG_water",
+                lambda tags: bool(
+                    tags.get("natural") == "water"
+                    or tags.get("waterway") in (
+                        "river",
+                        "stream",
+                        "canal",
+                        "riverbank",
+                        "flowline",
+                        "tidal_channel",
+                    )
+                    or tags.get("water") in ("lake", "river", "pond", "reservoir")
+                    or tags.get("landuse") in ("basin", "reservoir")
+                ),
+                10,
+            ),
+            (
+                "PG_lake",
+                lambda tags: bool(
+                    (
+                        tags.get("natural") == "water"
+                        and tags.get("water") in ("lake", "pond", "reservoir", None)
+                        and tags.get("waterway") not in ("river", "stream", "canal")
+                    )
+                    or tags.get("water") in ("lake", "pond")
+                    or tags.get("landuse") in ("basin", "reservoir")
+                ),
+                10,
+            ),
+        ]
+
+        for mask_name, match_fn, default_width in osm_mask_specs:
+            save_path = self.masks_dir / f"{mask_name}.png"
+            img = np.zeros(
+                (self.map_rotated_size, self.map_rotated_size), dtype=np.uint8
+            )
+            matching_features = [
+                f for f in self.osm_data.features if match_fn(f.tags)
+            ]
+            for feature in matching_features:
+                pixel_geometry = self._to_pixel_geometry(feature.geometry)
+                if pixel_geometry is None:
+                    continue
+                if isinstance(pixel_geometry, MultiPolygon):
+                    for poly in pixel_geometry.geoms:
+                        draw_polygon(img, polygon_to_np(poly))
+                else:
+                    polygon = geometry_to_polygon(pixel_geometry, default_width)
+                    if polygon is None or polygon.is_empty:
+                        continue
+                    draw_polygon(img, polygon_to_np(polygon))
+
+            if self.rotation:
+                height, width = img.shape[:2]
+                center = (width // 2, height // 2)
+                rotation_matrix = cv2.getRotationMatrix2D(center, self.rotation, 1.0)
+                rotated = cv2.warpAffine(img, rotation_matrix, (width, height))
+                start_x = center[0] - self.map_size // 2
+                start_y = center[1] - self.map_size // 2
+                img = rotated[
+                    start_y : start_y + self.map_size,
+                    start_x : start_x + self.map_size,
+                ]
+
+            cv2.imwrite(str(save_path), img)
+            self.logger.debug(
+                "máscara procedural OSM %s escrita (%d features)",
+                save_path.name,
+                len(matching_features),
+            )

@@ -5,8 +5,8 @@
 # (defaults = los del artefacto golden); todo es opcional salvo project/map/inputs.
 
 project:
-  name: "Granja Bonita"                     # nombre del proyecto (título del mod)
-  output_dir: "../output/FS25_Granja_bonita"     # directorio de salida (estructura de mod FS25)
+  name: "Valle Bonito"                     # nombre del proyecto (título del mod)
+  output_dir: "../output/FS25_Valle_Bonito"     # directorio de salida (estructura de mod FS25)
 
 map:
   size: 8192                          # lado del mapa en metros/píxeles (2048/4096/8192/16384)

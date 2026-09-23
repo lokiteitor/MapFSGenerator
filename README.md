@@ -22,7 +22,7 @@ python3 -m venv venv
 ## Uso
 
 ```bash
-./venv/bin/python -m mapforge generate -c config/config.example.yaml [-v]
+./venv/bin/python -m mapforge generate -c config/config.yaml [-v]
 ```
 
 La salida se escribe en el `output_dir` del config con la estructura de mod

@@ -11,8 +11,8 @@ project:
 map:
   size: 8192                          # lado del mapa en metros/píxeles (2048/4096/8192/16384)
   rotation: 0                         # grados; si != 0 el lienzo rotado es size × 1.5
-  latitude: 43.1457     # centro del mapa (lat) — debe coincidir con maps/custom.osm
-  longitude: -95.1451         # centro del mapa (lon) — debe coincidir con maps/custom.osm
+  latitude: 52.32365851773376     # centro del mapa (lat) — debe coincidir con maps/custom.osm
+  longitude:  41.94998265094888         # centro del mapa (lon) — debe coincidir con maps/custom.osm
   output_size: null                   # opcional: reescalar la salida a otro tamaño
 
 inputs:

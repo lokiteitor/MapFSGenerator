@@ -5,21 +5,21 @@
 # (defaults = los del artefacto golden); todo es opcional salvo project/map/inputs.
 
 project:
-  name: "Valle Bonito"                     # nombre del proyecto (título del mod)
-  output_dir: "../output/FS25_Valle_Bonito"     # directorio de salida (estructura de mod FS25)
+  name: "Granja Bonita"                     # nombre del proyecto (título del mod)
+  output_dir: "../output/FS25_Granja_Bonita_V3"     # directorio de salida (estructura de mod FS25)
 
 map:
   size: 8192                          # lado del mapa en metros/píxeles (2048/4096/8192/16384)
   rotation: 0                         # grados; si != 0 el lienzo rotado es size × 1.5
-  latitude: 52.32365851773376     # centro del mapa (lat) — debe coincidir con maps/custom.osm
-  longitude:  41.94998265094888         # centro del mapa (lon) — debe coincidir con maps/custom.osm
+  latitude: 43.1457     # centro del mapa (lat) — debe coincidir con maps/custom.osm
+  longitude:  -95.1451         # centro del mapa (lon) — debe coincidir con maps/custom.osm
   output_size: null                   # opcional: reescalar la salida a otro tamaño
 
 inputs:
   # DEM uint16 a 1 px/m del tamaño background (map.size + 4096).
   heightmap: "../maps/dem_new_12k.png"
   # OSM XML local (sin descargas).
-  osm: "../maps/custom.osm"
+  osm: "../maps/map.osm"
   # Template FS25: zip de Maps4FS o directorio ya extraído.
   template: "../templates/fs25-map-template.zip"
   # Schemas (por defecto, los de config/).

@@ -6,18 +6,18 @@
 
 project:
   name: "Granja Bonita"                     # nombre del proyecto (título del mod)
-  output_dir: "../output/FS25_Granja_Bonita_V3"     # directorio de salida (estructura de mod FS25)
+  output_dir: "../output/FS25_Granja_Bonita_V4"     # directorio de salida (estructura de mod FS25)
 
 map:
-  size: 8192                          # lado del mapa en metros/píxeles (2048/4096/8192/16384)
+  size: 4096                          # lado del mapa en metros/píxeles (2048/4096/8192/16384)
   rotation: 0                         # grados; si != 0 el lienzo rotado es size × 1.5
-  latitude: 43.1457     # centro del mapa (lat) — debe coincidir con maps/custom.osm
-  longitude:  -95.1451         # centro del mapa (lon) — debe coincidir con maps/custom.osm
+  latitude: 43.14569235    # centro del mapa (lat) — debe coincidir con maps/custom.osm
+  longitude:  -95.14507865        # centro del mapa (lon) — debe coincidir con maps/custom.osm
   output_size: null                   # opcional: reescalar la salida a otro tamaño
 
 inputs:
   # DEM uint16 a 1 px/m del tamaño background (map.size + 4096).
-  heightmap: "../maps/dem_new_12k.png"
+  heightmap: "../maps/dem_8k.png"
   # OSM XML local (sin descargas).
   osm: "../maps/map.osm"
   # Template FS25: zip de Maps4FS o directorio ya extraído.
